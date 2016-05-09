@@ -44,11 +44,11 @@ void MainWindow:: init_TblWidget()
     ui->EM_DETECT_OUT_EQUIP_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 //    ui->EM_DETECT_OUT_EQUIP_TblWidget->verticalHeader()->setHidden(true);
 
-    ui->EM_BASICERR_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
+    ui->MU_BASICERR_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_RSLT_TabWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 
     ui->MU_INTUIT_MET_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
-    ui->EM_BASICERR_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
+    ui->MU_BASICERR_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_METER_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->EM_P_CODE_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 

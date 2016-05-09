@@ -101,46 +101,30 @@ void MainWindow:: save_MT_DETECT_TASK()
 }
 
 
-void MainWindow::fill_DETECT_TASK()
+void MainWindow::fill_sampleInfo()
 {
-    my_MT_DETECT_TASK.BAR_CODE          = strArray[15][0];
-    my_MT_DETECT_TASK.DETECT_TASK_NO    = strArray[15][1];
-    my_MT_DETECT_TASK.TASK_PRIO         = strArray[15][2];
-    my_MT_DETECT_TASK.DETECT_MODE       = strArray[15][3];
-    my_MT_DETECT_TASK.SYS_NO            = strArray[15][4];
-    my_MT_DETECT_TASK.ARRIVE_BATCH_NO   = strArray[15][5];
-    my_MT_DETECT_TASK.EQUIP_CATEG       = strArray[15][6];
-    my_MT_DETECT_TASK.MODEL_CODE        = strArray[15][7];
-    my_MT_DETECT_TASK.SCHEMA_ID         = strArray[15][8];
-    my_MT_DETECT_TASK.REDETECT_SCHEMA   = strArray[15][9];
-    my_MT_DETECT_TASK.REDETECT_FLAG     = strArray[15][10];
+    struct_sampleInfo.sampleNo          = strArray[15][0];
+    struct_sampleInfo.tableType         = strArray[15][1];
+    struct_sampleInfo.phaseType         = strArray[15][2];
+    struct_sampleInfo.nominalVoltage    = strArray[15][3];
+    struct_sampleInfo.nominalCurrent    = strArray[15][4];
+    struct_sampleInfo.sampleType        = strArray[15][5];
+    struct_sampleInfo.nominalConstant   = strArray[15][6];
+    struct_sampleInfo.reactiveConstant  = strArray[15][7];
+    struct_sampleInfo.activeLevel       = strArray[15][8];
+    struct_sampleInfo.reactiveLevel     = strArray[15][9];
 
-    my_MT_DETECT_TASK.REDETECT_QTY      = strArray[15][11];
-    my_MT_DETECT_TASK.EQUIP_QTY         = strArray[15][12];
-    my_MT_DETECT_TASK.PILE_QTY          = strArray[15][13];
-    my_MT_DETECT_TASK.TASK_STATUS       = strArray[15][14];
-    my_MT_DETECT_TASK.HANDLE_DATE       = strArray[15][15];//SDJLFNG
-    my_MT_DETECT_TASK.HANDLE_FLAG       = strArray[15][16];
-    my_MT_DETECT_TASK.WRITE_DATE        = strArray[15][17];
-    my_MT_DETECT_TASK.ERP_BATCH_NO      = strArray[15][18];
-    my_MT_DETECT_TASK.TASK_TYPE         = strArray[15][19];
-    my_MT_DETECT_TASK.EQUIP_STATUS_CODE = strArray[15][20];
+    struct_sampleInfo.freq                   = strArray[15][10];
+    struct_sampleInfo.inputMode              = strArray[15][11];
+    struct_sampleInfo.isEmulator             = strArray[15][12];
+    struct_sampleInfo.measurementDirection   = strArray[15][13];
+    struct_sampleInfo.sampleName             = strArray[15][14];
 
-    my_MT_DETECT_TASK.EXEC_RESP_NAME    = strArray[15][21];
-    my_MT_DETECT_TASK.APPR_NAME         = strArray[15][22];
-    my_MT_DETECT_TASK.IS_AUTO_SEAL      = strArray[15][23];
+    struct_sampleInfo.redSeal                = strArray[15][15];//SDJLFNG
+    struct_sampleInfo.producer               = strArray[15][16];
+    struct_sampleInfo.sampleUserName         = strArray[15][17];
+    struct_sampleInfo.sampleManuNo           = strArray[15][18];
+    struct_sampleInfo.sampleSeal             = strArray[15][19];
 
-    my_MT_DETECT_TASK.EQUIP_CODE_NEW    = strArray[15][24];
-    my_MT_DETECT_TASK.PARAM_TYPE        = strArray[15][25];
-
-    my_CONC_CODE.DETECT_EQUIP_NO=ui->EM_options_detectEquipNo_LnEdit->text();
-
-    my_CONC_CODE.INTUIT     = "1";  //每一次都要默认为1(合格)
-    my_CONC_CODE.BASICERR   = "1";
-    my_CONC_CODE.CONST      = "1";
-    my_CONC_CODE.STARTING   = "1";
-    my_CONC_CODE.CREEPING   = "1";
-    my_CONC_CODE.INFLUENCE  = "1";
-    my_CONC_CODE.MEASURE_REPEAT="1";
 
 }

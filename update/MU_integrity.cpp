@@ -11,6 +11,11 @@ bool MainWindow:: fill_integrity(QString sampleNo)
 {
     int rowCount,columnCount;
 
+    if(struct_mdsFuncData.inteResult.isEmpty())
+    {
+        return false;
+    }
+
     rowCount =ui->MU_integrity_TblWidget->rowCount();
     columnCount =ui->MU_integrity_TblWidget->columnCount();
 
@@ -24,6 +29,7 @@ bool MainWindow:: fill_integrity(QString sampleNo)
     ui->MU_integrity_TblWidget->setItem(rowCount,5, new QTableWidgetItem(struct_mdsFuncData.inteStartTime  ));
     ui->MU_integrity_TblWidget->setItem(rowCount,6, new QTableWidgetItem(struct_mdsFuncData.inteEndTime  ));
     ui->MU_integrity_TblWidget->setItem(rowCount,7, new QTableWidgetItem(struct_mdsFuncData.testId  ));
+
     return true;
 }
 
@@ -51,7 +57,7 @@ void MainWindow::addNode_integrity(QString nodeName, QDomDocument &domDoc)
 
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
-    projectElement.setAttribute("sampleNo",my_MT_DETECT_TASK.BAR_CODE);
+    projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
     projectElement.setAttribute("projectName",QString::fromUtf8("启动试验"));
     //projectElement.setAttribute("testResult",my_CONC_CODE.STARTING);
     projectsElement.appendChild( projectElement );

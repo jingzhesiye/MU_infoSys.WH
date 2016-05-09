@@ -59,7 +59,7 @@ void MainWindow::on_EM_update_loadLocalSql_PsBtn_clicked()
     setCursor(QCursor(Qt::WaitCursor));
 
     remove_TblWdiget_Row(ui->MU_INTUIT_MET_TblWidget);
-    remove_TblWdiget_Row(ui->EM_BASICERR_TblWidget);
+    remove_TblWdiget_Row(ui->MU_BASICERR_TblWidget);
     remove_TblWdiget_Row(ui->MU_RSLT_TabWidget);
     remove_TblWdiget_Row(ui->MU_integrity_TblWidget);
     remove_TblWdiget_Row(ui->MU_transmission_TblWidget);
@@ -85,30 +85,22 @@ void MainWindow::on_EM_update_loadLocalSql_PsBtn_clicked()
 
              if(isLocalBarCodeExist(strExec,sampleNo)) //判断条形码是否有下载信息,没有的话不处理。
              {
-                #if 1
                 if(SqlTempToQstring(strExec,20))       //获取sampleInfo信息(数据库执行语句,数据库长度)
                 {
-                     fill_DETECT_TASK();                   //将sampleInfo信息填充
-                     int j=0;
-                                                         //已经查到的信息直接导入
+                    fill_sampleInfo();                  //将sampleInfo信息填充
+                    fill_INTUIT();                      //外观检查结论
+                    fill_BASICERR(ID);                  //基本误差
 
-                       fill_INTUIT();                      //外观检查结论
+                    if(get_MdsFuncData(ID))
+                    {
+                        fill_integrity(sampleNo);        //完整性
+                        fill_transmission(sampleNo);     //传输延时
+                        fill_dispersion(sampleNo);       //离散度
+                    }
 
-                       if(get_MdsFuncData(ID))
-                       {
-                          fill_integrity(sampleNo);                   //完整性
-                          fill_transmission(sampleNo);                //传输延时
-                          fill_dispersion(sampleNo);                    //离散度
-                       }
-
-//                                                         //信息需求复杂重新查找
-//                     fill_BASICERR(ID);                  //基本误差
-
-                     //fill_DETECT_RSLT(ID);             //检测总结论
-
-                    // qDebug()<<my_MT_DETECT_TASK.BAR_CODE ;
+                    fill_rslt(ID);             //检测总结
                  }
-                #endif
+
              }
              else
              {

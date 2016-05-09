@@ -8,6 +8,11 @@ bool MainWindow::fill_dispersion(QString sampleNo)
 {
     int rowCount,columnCount;
 
+    if(struct_mdsFuncData.spaceResult.isEmpty())
+    {
+        return false;
+    }
+
     rowCount =ui->MU_dispersion_TblWidget->rowCount();
     columnCount =ui->MU_dispersion_TblWidget->columnCount();
 
@@ -47,7 +52,7 @@ void MainWindow::addNode_dispersion(QString nodeName, QDomDocument &domDoc)
 
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
-    projectElement.setAttribute("sampleNo",my_MT_DETECT_TASK.BAR_CODE);
+    projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
     projectElement.setAttribute("projectName",QString::fromUtf8("测量重复性"));
 //    projectElement.setAttribute("testResult",my_CONC_CODE.MEASURE_REPEAT);
     projectsElement.appendChild( projectElement );

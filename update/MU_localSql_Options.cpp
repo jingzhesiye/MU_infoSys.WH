@@ -39,7 +39,6 @@ void  MainWindow::open_localSql()
          return;
      }
 
-
     strExec ="CREATE TABLE if not exists MT_DETECT_OUT_EQUIP( DETECT_TASK_NO char(128),IO_TASK_NO char(128),EQUIP_CATEG char(128),BAR_CODE char(128) primary key,BOX_BAR_CODE char(128),PILE_NO char(128),PLATFORM_NO char(128),SYS_NO char(128),WRITE_DATE char(128),HANDLE_FLAG char(128),HANDLE_DATE char(128),ARRIVE_BATCH_NO char(128),REDETECT_FLAG char(128),EMP_NO char(128),PLATFORM_TYPE char(128));";
     intResult= sql_exec(strExec.toLatin1().data());
 

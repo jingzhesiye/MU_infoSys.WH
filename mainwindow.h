@@ -43,12 +43,7 @@ public:
 
     int   sql_exec(const char *);
     void  get_checkParameter();
-    bool  get_ID_from_checkParameter(QString  sampleNo,QString ID);
     bool  SqlTempToQstring(QString strExec,int ItemCount);
-
-    int get_BASICERR_checkParameter(QString strID);
-    int get_BASICERR_checkError(QString strID);
-
 
     QString indexOfTable(QString strSou,QString strKey);
     QString get_itemFromSql(QString strSou,QString strKey,QString strName);
@@ -80,6 +75,7 @@ public:
     void save_MT_DETECT_TASK();
     void save_MT_DETECT_OUT_EQUIP();
 
+    bool get_MdsTestData(QString ID);
     bool get_MdsFuncData(QString ID);
     void getDataFromLocalSqlToTblWidget(QString strExec,QTableWidget * tblWidget,int columnCount);
 
@@ -98,14 +94,13 @@ public:
     bool fill_BASICERR(QString ID);
     bool fill_integrity(QString sampleNo);
     bool fill_transmission(QString sampleNo);
-    bool fill_DETECT_RSLT(QString ID);
+    bool fill_rslt(QString ID);
     bool fill_dispersion(QString ID);
     void fill_DETECT_OUT_EQUIP();
-    void fill_DETECT_TASK();
+    void fill_sampleInfo();
 
-    int  get_DETECT_RSLT_checkParameter(QString strID);
-
-    QString get_RSLT_CONC();
+    bool  get_testList(QString strID);
+    bool  get_muList(QString strID);
 
     bool  appendNode(const QString &strFilePath, const QString &strNodeName, const QMap<QString,QString> &nodeMap);
     bool  prependNode(const QString &strFilePath, const QString &strNodeName, const QMap<QString,QString> &nodeMap);
@@ -181,13 +176,20 @@ private:
     QSqlTableModel  *SGEE_SqlTablemodel_ptl;  //protocol
 
     //STRUCT_MT_DETECT_OUT_EQUIP my_MT_DETECT_OUT_EQUIP;
-    STRUCT_MT_DETECT_TASK      my_MT_DETECT_TASK;
-    STRUCT_CONC_CODE           my_CONC_CODE;
+
     STRUCT_DOWN_INFO           my_DOWN_INFO;
 
     QDomDocument g_domDoc;
     QMap<QString,QString> g_map;
+
     struct MdsFuncData struct_mdsFuncData;
+    struct MdsTestData struct_MdsTestData;
+    struct testList struct_testList;
+    struct muList struct_muList;
+    struct SampleInfo struct_sampleInfo;
+
+
+
 public:
 //    char localSqlArrayTemp[1000][1000];
     int  LocalSqlSum;//每次执行sql_exec所产生的数目

@@ -11,6 +11,11 @@ bool MainWindow:: fill_transmission(QString sampleNo)
 {
     int rowCount,columnCount;
 
+    if(struct_mdsFuncData.transResult.isEmpty())
+    {
+        return false;
+    }
+
     rowCount =ui->MU_transmission_TblWidget->rowCount();
     columnCount =ui->MU_transmission_TblWidget->columnCount();
 
@@ -50,7 +55,7 @@ void MainWindow::addNode_transmission(QString nodeName, QDomDocument &domDoc)
 
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
-    projectElement.setAttribute("sampleNo",my_MT_DETECT_TASK.BAR_CODE);
+    projectElement.setAttribute("sampleNo","");
     projectElement.setAttribute("projectName",QString::fromUtf8("潜动试验"));
     //projectElement.setAttribute("testResult",my_CONC_CODE.CREEPING);
     projectsElement.appendChild( projectElement );

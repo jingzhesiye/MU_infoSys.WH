@@ -2008,7 +2008,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QTabWidget" name="EM_update_TabWidget">
+            <widget class="QTabWidget" name="MU_update_TabWidget">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -2019,7 +2019,7 @@
               </sizepolicy>
              </property>
              <property name="currentIndex">
-              <number>5</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="MU_INTUIT_MET_tab">
               <attribute name="title">
@@ -2036,37 +2036,7 @@
                 <widget class="QTableWidget" name="MU_INTUIT_MET_TblWidget">
                  <column>
                   <property name="text">
-                   <string>1.检定任务单</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>设备类别</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>系统编号</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>检定线台编号</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>检定单元编号</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>表位编号</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>设备条形码</string>
+                   <string>1.设备条形码</string>
                   </property>
                  </column>
                  <column>
@@ -2076,49 +2046,14 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>检定序号</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>10.检定点序号</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>有效标志</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>检查内容 </string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>13检查结论</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>检定线写入时间</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>处理标记</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>处理时间</string>
+                   <string>检查结论</string>
                   </property>
                  </column>
                 </widget>
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="EM_BASICERR_Tab">
+             <widget class="QWidget" name="MU_BASICERR_Tab">
               <attribute name="title">
                <string>基本误差</string>
               </attribute>
@@ -2130,10 +2065,15 @@
                 <number>0</number>
                </property>
                <item row="0" column="0">
-                <widget class="QTableWidget" name="EM_BASICERR_TblWidget">
+                <widget class="QTableWidget" name="MU_BASICERR_TblWidget">
                  <column>
                   <property name="text">
                    <string>1条形码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>通道号</string>
                   </property>
                  </column>
                  <column>
@@ -2148,32 +2088,47 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>标准幅值</string>
+                   <string>标准有效值</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
-                   <string>被检幅值</string>
+                   <string>被检有效值</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
-                   <string>比差均值%</string>
+                   <string>标准频率</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
-                   <string>角差均值′</string>
+                   <string>被检频率</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
-                   <string>比差变差%</string>
+                   <string>比差均值</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
-                   <string>角差变差′</string>
+                   <string>角差均值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>频差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>多次比差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>多次角差</string>
                   </property>
                  </column>
                  <column>
@@ -2367,7 +2322,12 @@
                 <widget class="QTableWidget" name="MU_RSLT_TabWidget">
                  <column>
                   <property name="text">
-                   <string>1条形码</string>
+                   <string>1Id</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>MuId </string>
                   </property>
                  </column>
                  <column>
@@ -2382,42 +2342,12 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>新建列</string>
+                   <string>5.appid</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
-                   <string>ASDU数</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>采样率</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>额定延时</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>appid</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>SVID</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>同步方式</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>通道数</string>
+                   <string>数字量电压额定值</string>
                   </property>
                  </column>
                  <column>
@@ -2433,6 +2363,11 @@
                  <column>
                   <property name="text">
                    <string>数字量电流额定值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>10.同步方式</string>
                   </property>
                  </column>
                  <column>
@@ -2457,12 +2392,52 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>审核状态</string>
+                   <string>15审核状态</string>
                   </property>
                  </column>
                  <column>
                   <property name="text">
                    <string>结果</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>环境</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>数据</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>其它</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>20.ID</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>任务单编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>型号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>厂家</string>
                   </property>
                  </column>
                 </widget>
