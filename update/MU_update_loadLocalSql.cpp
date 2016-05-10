@@ -104,7 +104,7 @@ void MainWindow::on_EM_update_loadLocalSql_PsBtn_clicked()
              }
              else
              {
-                 showInformationBox(QString::fromUtf8("查找不到,下载信息"));
+                 showInformationBox(QString::fromUtf8("查找不到下载信息"));
              }
     }  
   }

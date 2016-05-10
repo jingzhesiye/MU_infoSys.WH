@@ -24,7 +24,7 @@ bool MainWindow:: fill_integrity(QString sampleNo)
     ui->MU_integrity_TblWidget->setItem(rowCount,1, new QTableWidgetItem(struct_mdsFuncData.inteLoseNum ));
     ui->MU_integrity_TblWidget->setItem(rowCount,2, new QTableWidgetItem(struct_mdsFuncData.inteAllNum ));
     ui->MU_integrity_TblWidget->setItem(rowCount,3, new QTableWidgetItem(struct_mdsFuncData.inteTestTime ));
-    ui->MU_integrity_TblWidget->setItem(rowCount,4, new QTableWidgetItem(struct_mdsFuncData.inteResult ));
+    ui->MU_integrity_TblWidget->setItem(rowCount,4, new QTableWidgetItem(JBWCSYJLDM_index(struct_mdsFuncData.inteResult) ));
 
     ui->MU_integrity_TblWidget->setItem(rowCount,5, new QTableWidgetItem(struct_mdsFuncData.inteStartTime  ));
     ui->MU_integrity_TblWidget->setItem(rowCount,6, new QTableWidgetItem(struct_mdsFuncData.inteEndTime  ));
@@ -58,25 +58,23 @@ void MainWindow::addNode_integrity(QString nodeName, QDomDocument &domDoc)
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
     projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
-    projectElement.setAttribute("projectName",QString::fromUtf8("启动试验"));
-    //projectElement.setAttribute("testResult",my_CONC_CODE.STARTING);
+    projectElement.setAttribute("projectName",QString::fromUtf8("完整性"));
     projectsElement.appendChild( projectElement );
 
     for(int i =0;i<rowCount;i++)//
     {
-        projectElement.setAttribute("testResult",ui->MU_integrity_TblWidget->item(i,17)->text());
+        projectElement.setAttribute("inteLoseNum",ui->MU_integrity_TblWidget->item(i,1)->text());
+        projectElement.setAttribute("inteAllNum",ui->MU_integrity_TblWidget->item(i,2)->text());
+        projectElement.setAttribute("inteTestTime ",ui->MU_integrity_TblWidget->item(i,3)->text());
+
+        projectElement.setAttribute("testResult",ui->MU_integrity_TblWidget->item(i,4)->text());
+        projectElement.setAttribute("inteStartTime",ui->MU_integrity_TblWidget->item(i,5)->text());
+        projectElement.setAttribute("inteEndTime",ui->MU_integrity_TblWidget->item(i,6)->text());
+
+
         domElement = domDoc.createElement("testData");
         projectElement.appendChild( domElement );
+        domElement.setAttribute("conclusion",ui->MU_integrity_TblWidget->item(i,4)->text());
 
-        domElement.setAttribute("testPhase","");
-        domElement.setAttribute("testGroup","");
-        domElement.setAttribute("freq","");
-        domElement.setAttribute("PF","");
-        domElement.setAttribute("volt","");
-
-        domElement.setAttribute("curr","");
-        domElement.setAttribute("conclusion",ui->MU_integrity_TblWidget->item(i,17)->text());
-        domElement.setAttribute("refTime",ui->MU_integrity_TblWidget->item(i,7)->text());
-        domElement.setAttribute("strSampleID","");
     }
 }

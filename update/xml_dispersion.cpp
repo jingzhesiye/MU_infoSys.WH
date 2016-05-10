@@ -23,11 +23,11 @@ bool MainWindow::fill_dispersion(QString sampleNo)
     ui->MU_dispersion_TblWidget->setItem(rowCount,3, new QTableWidgetItem(struct_mdsFuncData.spaceTestTime  ));
     ui->MU_dispersion_TblWidget->setItem(rowCount,4, new QTableWidgetItem(struct_mdsFuncData.spaceMaxDis  ));
 
-    ui->MU_dispersion_TblWidget->setItem(rowCount,5, new QTableWidgetItem(struct_mdsFuncData.spaceResult   ));
+    ui->MU_dispersion_TblWidget->setItem(rowCount,5, new QTableWidgetItem(JBWCSYJLDM_index(struct_mdsFuncData.spaceResult)));
     ui->MU_dispersion_TblWidget->setItem(rowCount,6, new QTableWidgetItem(struct_mdsFuncData.testId   ));
     return true;
 }
-//测量重复性
+
 void MainWindow::addNode_dispersion(QString nodeName, QDomDocument &domDoc)
 {
     QDomElement  domElement,projectsElement,projectElement;
@@ -53,27 +53,22 @@ void MainWindow::addNode_dispersion(QString nodeName, QDomDocument &domDoc)
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
     projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
-    projectElement.setAttribute("projectName",QString::fromUtf8("测量重复性"));
-//    projectElement.setAttribute("testResult",my_CONC_CODE.MEASURE_REPEAT);
+    projectElement.setAttribute("projectName",QString::fromUtf8("离散度"));
     projectsElement.appendChild( projectElement );
 
     for(int i =0;i<rowCount;i++)//
     {
-        projectElement.setAttribute("testResult",ui->MU_dispersion_TblWidget->item(i,17)->text());
+        projectElement.setAttribute("spaceStartTime",ui->MU_dispersion_TblWidget->item(i,1)->text());
+        projectElement.setAttribute("spaceEndTime",ui->MU_dispersion_TblWidget->item(i,2)->text());
+        projectElement.setAttribute("spaceTestTime",ui->MU_dispersion_TblWidget->item(i,3)->text());
+        projectElement.setAttribute("spaceMaxDis",ui->MU_dispersion_TblWidget->item(i,4)->text());
+        projectElement.setAttribute("testResult",ui->MU_dispersion_TblWidget->item(i,5)->text());
+        projectElement.setAttribute("inteEndTime ",ui->MU_dispersion_TblWidget->item(i,6)->text());
 
         domElement = domDoc.createElement("testData");
         projectElement.appendChild( domElement );
+        domElement.setAttribute("conclusion",ui->MU_dispersion_TblWidget->item(i,4)->text());
 
-        domElement.setAttribute("testPhase","");
-        domElement.setAttribute("testGroup","");
-        domElement.setAttribute("freq","");
-        domElement.setAttribute("PF","");
-        domElement.setAttribute("volt","");
-
-        domElement.setAttribute("curr","");
-        domElement.setAttribute("conclusion",ui->MU_dispersion_TblWidget->item(i,17)->text());
-        domElement.setAttribute("refTime",ui->MU_dispersion_TblWidget->item(i,7)->text());
-        domElement.setAttribute("strSampleID","");
     }
 
 }

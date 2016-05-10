@@ -6,7 +6,7 @@
 //生成XML文件
 void MainWindow::on_EM_creat_xml_PsBtn_clicked()
 {
-    QString  fileName = "./update.xml";// "e:/update.xml";
+    QString  fileName ="e:/update.xml";//"./update.xml";//
     QFile *file;
     QDomDocument domDoc;
 

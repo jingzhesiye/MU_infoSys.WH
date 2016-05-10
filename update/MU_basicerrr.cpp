@@ -43,8 +43,8 @@ void MainWindow::addNode_BASICERR(QString nodeName, QDomDocument &domDoc)
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
     projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
-    projectElement.setAttribute("projectName",QString::fromUtf8("基本误差"));
-    projectElement.setAttribute("testResult","1");
+    projectElement.setAttribute("projectName",QString::fromUtf8("误差数据"));
+    //projectElement.setAttribute("testResult","1");
     projectsElement.appendChild( projectElement );
 
     for(int i =0;i<rowCount;i++)//
@@ -52,17 +52,22 @@ void MainWindow::addNode_BASICERR(QString nodeName, QDomDocument &domDoc)
         testDataElement = domDoc.createElement("testData");
         projectElement.appendChild( testDataElement );
 
-        testDataElement.setAttribute("testPhase",ui->MU_BASICERR_TblWidget->item(i,11)->text());
-        testDataElement.setAttribute("testGroup",ui->MU_BASICERR_TblWidget->item(i,12)->text());
-        testDataElement.setAttribute("freq",ui->MU_BASICERR_TblWidget->item(i,15)->text());
-        testDataElement.setAttribute("PF",ui->MU_BASICERR_TblWidget->item(i,16)->text());
-        testDataElement.setAttribute("volt",ui->MU_BASICERR_TblWidget->item(i,14)->text());
+        testDataElement.setAttribute("chIndex",ui->MU_BASICERR_TblWidget->item(i,1)->text());
+        testDataElement.setAttribute("chMap",ui->MU_BASICERR_TblWidget->item(i,2)->text());
+        testDataElement.setAttribute("point",ui->MU_BASICERR_TblWidget->item(i,3)->text());
+        testDataElement.setAttribute("rms_B",ui->MU_BASICERR_TblWidget->item(i,4)->text());
+        testDataElement.setAttribute("rms_X",ui->MU_BASICERR_TblWidget->item(i,5)->text());
 
-        testDataElement.setAttribute("curr",ui->MU_BASICERR_TblWidget->item(i,13)->text());
-        testDataElement.setAttribute("conclusion",ui->MU_BASICERR_TblWidget->item(i,22)->text());
-        testDataElement.setAttribute("refTime",ui->MU_BASICERR_TblWidget->item(i,7)->text());
-        testDataElement.setAttribute("strSampleID","");
+        testDataElement.setAttribute("freq_B",ui->MU_BASICERR_TblWidget->item(i,6)->text());
+        testDataElement.setAttribute("freq_X",ui->MU_BASICERR_TblWidget->item(i,7)->text());
+        testDataElement.setAttribute("vError",ui->MU_BASICERR_TblWidget->item(i,8)->text());
+        testDataElement.setAttribute("qError",ui->MU_BASICERR_TblWidget->item(i,9)->text());
+        testDataElement.setAttribute("freqError",ui->MU_BASICERR_TblWidget->item(i,10)->text());
 
+        testDataElement.setAttribute("vErrorArray",ui->MU_BASICERR_TblWidget->item(i,11)->text());
+        testDataElement.setAttribute("qErrorArray",ui->MU_BASICERR_TblWidget->item(i,12)->text());
+
+#if 0
         str1= ui->MU_BASICERR_TblWidget->item(i,19)->text(); //误差次数
         int simplingCount = str1.count("|")+1;
 
@@ -85,6 +90,7 @@ void MainWindow::addNode_BASICERR(QString nodeName, QDomDocument &domDoc)
             domElement.appendChild(textNode);
             testDataElement.appendChild( domElement );
         }
+#endif
     }
 }
 

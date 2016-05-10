@@ -44,21 +44,21 @@ void MainWindow::addNode_INTUIT(QString nodeName, QDomDocument &domDoc)
 
     for(int i =0;i<rowCount;i++)//
     {
-        projectElement.setAttribute("testResult",ui->MU_INTUIT_MET_TblWidget->item(i,12)->text());
+        projectElement.setAttribute("testResult",ui->MU_INTUIT_MET_TblWidget->item(i,2)->text());
 
         domElement = domDoc.createElement("testData");
         projectElement.appendChild( domElement );
 
-        domElement.setAttribute("testPhase","");
-        domElement.setAttribute("testGroup","");
-        domElement.setAttribute("freq","");
-        domElement.setAttribute("PF","");
-        domElement.setAttribute("volt","");
+//        domElement.setAttribute("testPhase","");
+//        domElement.setAttribute("testGroup","");
+//        domElement.setAttribute("freq","");
+//        domElement.setAttribute("PF","");
+//        domElement.setAttribute("volt","");
 
-        domElement.setAttribute("curr","");
-        domElement.setAttribute("conclusion",ui->MU_INTUIT_MET_TblWidget->item(i,12)->text());
-        domElement.setAttribute("refTime",ui->MU_INTUIT_MET_TblWidget->item(i,7)->text());
-        domElement.setAttribute("strSampleID","");
+//        domElement.setAttribute("curr","");
+        domElement.setAttribute("conclusion",ui->MU_INTUIT_MET_TblWidget->item(i,2)->text());
+        domElement.setAttribute("refTime",ui->MU_INTUIT_MET_TblWidget->item(i,1)->text());
+//        domElement.setAttribute("strSampleID","");
     }
 }
 

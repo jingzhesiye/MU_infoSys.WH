@@ -19,7 +19,7 @@ bool MainWindow:: fill_rslt(QString ID)
    columnCount =ui->MU_RSLT_TabWidget->columnCount();
 
    ui->MU_RSLT_TabWidget->insertRow(rowCount);
-   ui->MU_RSLT_TabWidget->setItem(rowCount,0, new QTableWidgetItem(struct_testList.Id ));
+   ui->MU_RSLT_TabWidget->setItem(rowCount,0, new QTableWidgetItem(struct_testList.barCode ));
    ui->MU_RSLT_TabWidget->setItem(rowCount,1, new QTableWidgetItem(struct_testList.MuId ));
    ui->MU_RSLT_TabWidget->setItem(rowCount,2, new QTableWidgetItem(struct_testList.sourMac ));
    ui->MU_RSLT_TabWidget->setItem(rowCount,3, new QTableWidgetItem(struct_testList.descMac ));
@@ -37,11 +37,11 @@ bool MainWindow:: fill_rslt(QString ID)
    ui->MU_RSLT_TabWidget->setItem(rowCount,13, new QTableWidgetItem(struct_testList.auditor  ));
 
    ui->MU_RSLT_TabWidget->setItem(rowCount,14, new QTableWidgetItem(struct_testList.AuditState  ));
-   ui->MU_RSLT_TabWidget->setItem(rowCount,15, new QTableWidgetItem(struct_testList.result  ));
+   ui->MU_RSLT_TabWidget->setItem(rowCount,15, new QTableWidgetItem(JBWCSYJLDM_index(struct_testList.result)));
    ui->MU_RSLT_TabWidget->setItem(rowCount,16, new QTableWidgetItem(struct_testList.environment  ));
    ui->MU_RSLT_TabWidget->setItem(rowCount,17, new QTableWidgetItem(struct_testList.protocolData  ));
    ui->MU_RSLT_TabWidget->setItem(rowCount,18, new QTableWidgetItem(struct_testList.otherInformation));
-   ui->MU_RSLT_TabWidget->setItem(rowCount,19, new QTableWidgetItem(struct_testList.barCode  ));
+   ui->MU_RSLT_TabWidget->setItem(rowCount,19, new QTableWidgetItem(struct_testList.Id  ));
 
    ui->MU_RSLT_TabWidget->setItem(rowCount,20, new QTableWidgetItem(struct_testList.taskNo  ));
 

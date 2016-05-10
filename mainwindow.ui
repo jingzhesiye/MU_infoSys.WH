@@ -71,7 +71,7 @@
            <item row="1" column="1">
             <widget class="QLineEdit" name="EM_down_barCode_LnEdit">
              <property name="text">
-              <string>kkkk001</string>
+              <string>KKKK001</string>
              </property>
             </widget>
            </item>
@@ -2019,7 +2019,7 @@
               </sizepolicy>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>4</number>
              </property>
              <widget class="QWidget" name="MU_INTUIT_MET_tab">
               <attribute name="title">
@@ -2290,7 +2290,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>测试时长</string>
+                   <string>最大离散度</string>
                   </property>
                  </column>
                  <column>
@@ -2322,7 +2322,7 @@
                 <widget class="QTableWidget" name="MU_RSLT_TabWidget">
                  <column>
                   <property name="text">
-                   <string>1Id</string>
+                   <string>1条形码</string>
                   </property>
                  </column>
                  <column>
@@ -2347,7 +2347,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>数字量电压额定值</string>
+                   <string>模拟量电压额定值</string>
                   </property>
                  </column>
                  <column>
