@@ -39,16 +39,16 @@ static const uint qt_meta_data_MainWindow[] = {
      224,   11,   11,   11, 0x08,
      257,   11,   11,   11, 0x08,
      297,   11,   11,   11, 0x08,
-     345,   11,   11,   11, 0x08,
-     391,   11,   11,   11, 0x08,
-     433,   11,   11,   11, 0x08,
-     479,   11,   11,   11, 0x08,
-     523,   11,   11,   11, 0x08,
-     567,   11,   11,   11, 0x08,
-     598,   11,   11,   11, 0x08,
-     636,   11,   11,   11, 0x08,
-     673,   11,   11,   11, 0x08,
-     710,  705,   11,   11, 0x08,
+     343,   11,   11,   11, 0x08,
+     387,   11,   11,   11, 0x08,
+     431,   11,   11,   11, 0x08,
+     474,  469,   11,   11, 0x08,
+     529,   11,   11,   11, 0x08,
+     571,   11,   11,   11, 0x08,
+     617,   11,   11,   11, 0x08,
+     649,   11,   11,   11, 0x08,
+     697,   11,   11,   11, 0x08,
+     729,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -62,17 +62,17 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_EM_down_loadLocalSql_PsBtn_clicked()\0"
     "on_EM_down_clean_PsBtn_clicked()\0"
     "on_EM_down_saveLocalSql_PsBtn_clicked()\0"
-    "on_EM_options_deleteLocalSqlAll_PsBtn_clicked()\0"
     "on_EM_down_deleteLocalSqlItem_PsBtn_clicked()\0"
-    "on_EM_update_loadLocalSql_PsBtn_clicked()\0"
-    "on_EM_update_loadDetectTaskNo_PsBtn_clicked()\0"
     "on_EM_options_setArg_Oracle_PsBtn_clicked()\0"
     "on_EM_options_detectEquipNo_PsBtn_clicked()\0"
-    "on_EM_save_XML_PsBtn_clicked()\0"
     "on_EM_down_sampleInfo_PsBtn_clicked()\0"
-    "on_EM_update_results_PsBtn_clicked()\0"
-    "on_EM_creat_xml_PsBtn_clicked()\0arg1\0"
-    "on_EM_update_searchBarCode_LnEdit_textChanged(QString)\0"
+    "arg1\0on_MU_update_searchBarCode_LnEdit_textChanged(QString)\0"
+    "on_MU_update_loadLocalSql_PsBtn_clicked()\0"
+    "on_MU_update_loadDetectTaskNo_PsBtn_clicked()\0"
+    "on_MU_down_test_PsBtn_clicked()\0"
+    "on_MU_options_deleteLocalSqlAll_PsBtn_clicked()\0"
+    "on_MU_creat_xml_PsBtn_clicked()\0"
+    "on_MU_update_results_PsBtn_clicked()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -89,17 +89,17 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_EM_down_loadLocalSql_PsBtn_clicked(); break;
         case 6: _t->on_EM_down_clean_PsBtn_clicked(); break;
         case 7: _t->on_EM_down_saveLocalSql_PsBtn_clicked(); break;
-        case 8: _t->on_EM_options_deleteLocalSqlAll_PsBtn_clicked(); break;
-        case 9: _t->on_EM_down_deleteLocalSqlItem_PsBtn_clicked(); break;
-        case 10: _t->on_EM_update_loadLocalSql_PsBtn_clicked(); break;
-        case 11: _t->on_EM_update_loadDetectTaskNo_PsBtn_clicked(); break;
-        case 12: _t->on_EM_options_setArg_Oracle_PsBtn_clicked(); break;
-        case 13: _t->on_EM_options_detectEquipNo_PsBtn_clicked(); break;
-        case 14: _t->on_EM_save_XML_PsBtn_clicked(); break;
-        case 15: _t->on_EM_down_sampleInfo_PsBtn_clicked(); break;
-        case 16: _t->on_EM_update_results_PsBtn_clicked(); break;
-        case 17: _t->on_EM_creat_xml_PsBtn_clicked(); break;
-        case 18: _t->on_EM_update_searchBarCode_LnEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 8: _t->on_EM_down_deleteLocalSqlItem_PsBtn_clicked(); break;
+        case 9: _t->on_EM_options_setArg_Oracle_PsBtn_clicked(); break;
+        case 10: _t->on_EM_options_detectEquipNo_PsBtn_clicked(); break;
+        case 11: _t->on_EM_down_sampleInfo_PsBtn_clicked(); break;
+        case 12: _t->on_MU_update_searchBarCode_LnEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 13: _t->on_MU_update_loadLocalSql_PsBtn_clicked(); break;
+        case 14: _t->on_MU_update_loadDetectTaskNo_PsBtn_clicked(); break;
+        case 15: _t->on_MU_down_test_PsBtn_clicked(); break;
+        case 16: _t->on_MU_options_deleteLocalSqlAll_PsBtn_clicked(); break;
+        case 17: _t->on_MU_creat_xml_PsBtn_clicked(); break;
+        case 18: _t->on_MU_update_results_PsBtn_clicked(); break;
         default: ;
         }
     }

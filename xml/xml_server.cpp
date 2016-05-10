@@ -67,8 +67,8 @@ void MainWindow::on_EM_down_sampleInfo_PsBtn_clicked()
 }
 
 ///QTextCodec::setCodecForTr(QTextCodec::codecForName("GBK"));
-
-void MainWindow::on_EM_update_results_PsBtn_clicked()
+///
+void MainWindow::on_MU_update_results_PsBtn_clicked()
 {
     QString sampleNo,sysParams,Appsecret,AppKey,date,Appsign,appsignBefore;
 #if 1
@@ -81,13 +81,13 @@ void MainWindow::on_EM_update_results_PsBtn_clicked()
     char *endPoint = NULL;
     char *action = NULL;
 
-    if(ui->MU_RSLT_TabWidget->rowCount()<=0)
+    if(ui->MU_rslt_TabWidget->rowCount()<=0)
     {
         showInformationBox(QString::fromUtf8("检定综合结论为空"));
         return;
     }
     setCursor(QCursor(Qt::WaitCursor));
-    sampleNo =ui->MU_RSLT_TabWidget->item(0,0)->text();
+    sampleNo =ui->MU_rslt_TabWidget->item(0,0)->text();
     AppKey = "169827";
     date =currentTime();
     Appsecret = "2e33edf32o34492uf58f233ksl3er60f";
@@ -99,12 +99,12 @@ void MainWindow::on_EM_update_results_PsBtn_clicked()
     //qDebug()<<sysParams;
     sendProjectResults.sampleNo=sampleNo.toStdString(); //样品编号
     sendProjectResults.sysParams=sysParams.toStdString();//系统参数
-    sendProjectResults.checkResult=ui->MU_RSLT_TabWidget->item(0,1)->text().toStdString(); //总结论//0：合格；1：不合格
+    sendProjectResults.checkResult=ui->MU_rslt_TabWidget->item(0,1)->text().toStdString(); //总结论//0：合格；1：不合格
     sendProjectResults.checkDate=currentTime().toStdString();;//检验日期
-    sendProjectResults.testMan=ui->MU_RSLT_TabWidget->item(0,3)->text().toStdString(); //检验员
-    sendProjectResults.checkMan=ui->MU_RSLT_TabWidget->item(0,4)->text().toStdString();//校核员
-    sendProjectResults.checkTemp=ui->MU_RSLT_TabWidget->item(0,6)->text().toStdString(); //检验温度
-    sendProjectResults.checkWet=ui->MU_RSLT_TabWidget->item(0,5)->text().toStdString();//检验湿度
+    sendProjectResults.testMan=ui->MU_rslt_TabWidget->item(0,3)->text().toStdString(); //检验员
+    sendProjectResults.checkMan=ui->MU_rslt_TabWidget->item(0,4)->text().toStdString();//校核员
+    sendProjectResults.checkTemp=ui->MU_rslt_TabWidget->item(0,6)->text().toStdString(); //检验温度
+    sendProjectResults.checkWet=ui->MU_rslt_TabWidget->item(0,5)->text().toStdString();//检验湿度
 
     QDomDocument domDoc;
     QString  strTemp;

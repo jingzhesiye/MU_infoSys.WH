@@ -178,7 +178,7 @@
             </widget>
            </item>
            <item row="0" column="4">
-            <spacer name="horizontalSpacer_4">
+            <spacer name="MU_down_HlSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -191,14 +191,14 @@
             </spacer>
            </item>
            <item row="0" column="5">
-            <widget class="QPushButton" name="EM_save_XML_PsBtn">
+            <widget class="QPushButton" name="MU_down_test_PsBtn">
              <property name="text">
               <string>测试</string>
              </property>
             </widget>
            </item>
            <item row="0" column="6">
-            <widget class="QPushButton" name="EM_options_deleteLocalSqlAll_PsBtn">
+            <widget class="QPushButton" name="MU_options_deleteLocalSqlAll_PsBtn">
              <property name="text">
               <string>删除所有下载历史信息</string>
              </property>
@@ -208,7 +208,7 @@
          </widget>
         </item>
         <item row="2" column="0" colspan="2">
-         <widget class="QTabWidget" name="EM_down_TabWidget">
+         <widget class="QTabWidget" name="MU_down_TabWidget">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -1703,7 +1703,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="EM_update_page">
+      <widget class="QWidget" name="MU_update_page">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -1718,7 +1718,7 @@
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <widget class="QGroupBox" name="EM_update_loadDetectTaskNo_GpBox">
+         <widget class="QGroupBox" name="MU_update_loadDetectTaskNo_GpBox">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1775,101 +1775,6 @@
            <property name="verticalSpacing">
             <number>6</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QFrame" name="EM_update_loadDetectTaskNo_Frame">
-             <property name="styleSheet">
-              <string notr="true">#EM_update_load_DetectTaskNo_Frame{
-	border-image: url(:baseTitle3.png);
-}</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_23">
-              <property name="margin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="2" column="2">
-               <widget class="QPushButton" name="EM_update_loadLocalSql_PsBtn">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>导入</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <spacer name="EM_update_searchBarCode_HlSpacer">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="0" column="1" colspan="2">
-               <widget class="QLineEdit" name="EM_update_searchBarCode_LnEdit">
-                <property name="text">
-                 <string>KKKK001</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="EM_update_searchBarCode_Label">
-                <property name="text">
-                 <string>查看条形码</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="EM_update_loadDetectTaskNo_PsBtn">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>查看全部</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <spacer name="EM_update_searchBarCode_VlSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>10</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="1" column="0">
             <widget class="QTableWidget" name="MU_update_loadDetectTaskNo_TblWidget">
              <property name="sizePolicy">
@@ -1904,7 +1809,7 @@
              </attribute>
              <column>
               <property name="text">
-               <string>MU条形码</string>
+               <string>条形码</string>
               </property>
              </column>
              <column>
@@ -1914,11 +1819,106 @@
              </column>
             </widget>
            </item>
+           <item row="0" column="0">
+            <widget class="QFrame" name="MU_update_loadDetectTaskNo_Frame">
+             <property name="styleSheet">
+              <string notr="true">#EM_update_load_DetectTaskNo_Frame{
+	border-image: url(:baseTitle3.png);
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_23">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="MU_update_loadLocalSql_PsBtn">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>导入</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <spacer name="MU_update_searchBarCode_HlSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="1" column="0">
+               <spacer name="MUupdate_searchBarCode_VlSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="MU_update_loadDetectTaskNo_PsBtn">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>查看全部</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="2">
+               <widget class="QLineEdit" name="MU_update_searchBarCode_LnEdit">
+                <property name="text">
+                 <string>KKKK001</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="MU_update_searchBarCode_Label">
+                <property name="text">
+                 <string>查看条形码</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QGroupBox" name="EM_update_info_GpBox">
+         <widget class="QGroupBox" name="MU_update_info_GpBox">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1958,7 +1958,7 @@
             <number>0</number>
            </property>
            <item row="0" column="0">
-            <widget class="QFrame" name="EM_update_Frame">
+            <widget class="QFrame" name="MU_update_Frame">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -1966,7 +1966,7 @@
               </sizepolicy>
              </property>
              <property name="styleSheet">
-              <string notr="true">#EM_update_Frame{
+              <string notr="true">#MU_update_Frame{
 	border-image: url(:baseTitle3.png);
 }</string>
              </property>
@@ -1978,14 +1978,14 @@
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
               <item row="0" column="3">
-               <widget class="QPushButton" name="EM_update_results_PsBtn">
+               <widget class="QPushButton" name="MU_update_results_PsBtn">
                 <property name="text">
                  <string>录入系统</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="1">
-               <spacer name="horizontalSpacer_3">
+               <spacer name="MU_update_HlSpacer">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
@@ -1998,7 +1998,7 @@
                </spacer>
               </item>
               <item row="0" column="0">
-               <widget class="QPushButton" name="EM_creat_xml_PsBtn">
+               <widget class="QPushButton" name="MU_creat_xml_PsBtn">
                 <property name="text">
                  <string>创建XML</string>
                 </property>
@@ -2019,9 +2019,9 @@
               </sizepolicy>
              </property>
              <property name="currentIndex">
-              <number>4</number>
+              <number>5</number>
              </property>
-             <widget class="QWidget" name="MU_INTUIT_MET_tab">
+             <widget class="QWidget" name="MU_intuit_tab">
               <attribute name="title">
                <string>外观检查结论</string>
               </attribute>
@@ -2033,10 +2033,10 @@
                 <number>0</number>
                </property>
                <item row="0" column="0">
-                <widget class="QTableWidget" name="MU_INTUIT_MET_TblWidget">
+                <widget class="QTableWidget" name="MU_intuit_TblWidget">
                  <column>
                   <property name="text">
-                   <string>1.设备条形码</string>
+                   <string>1.条形码</string>
                   </property>
                  </column>
                  <column>
@@ -2053,7 +2053,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="MU_BASICERR_Tab">
+             <widget class="QWidget" name="MU_basicerr_Tab">
               <attribute name="title">
                <string>基本误差</string>
               </attribute>
@@ -2065,7 +2065,7 @@
                 <number>0</number>
                </property>
                <item row="0" column="0">
-                <widget class="QTableWidget" name="MU_BASICERR_TblWidget">
+                <widget class="QTableWidget" name="MU_basicerr_TblWidget">
                  <column>
                   <property name="text">
                    <string>1条形码</string>
@@ -2088,7 +2088,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>标准有效值</string>
+                   <string>5.标准有效值</string>
                   </property>
                  </column>
                  <column>
@@ -2113,7 +2113,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>角差均值</string>
+                   <string>10.角差均值</string>
                   </property>
                  </column>
                  <column>
@@ -2129,6 +2129,11 @@
                  <column>
                   <property name="text">
                    <string>多次角差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>14.结论</string>
                   </property>
                  </column>
                  <column>
@@ -2307,7 +2312,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="MU_RSLT_Tab">
+             <widget class="QWidget" name="MU_rslt_Tab">
               <attribute name="title">
                <string>检定综合结论</string>
               </attribute>
@@ -2319,7 +2324,7 @@
                 <number>0</number>
                </property>
                <item row="0" column="0">
-                <widget class="QTableWidget" name="MU_RSLT_TabWidget">
+                <widget class="QTableWidget" name="MU_rslt_TabWidget">
                  <column>
                   <property name="text">
                    <string>1条形码</string>
@@ -2397,7 +2402,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>结果</string>
+                   <string>结论</string>
                   </property>
                  </column>
                  <column>

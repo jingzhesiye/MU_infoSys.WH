@@ -6,22 +6,22 @@
 //外观
 void MainWindow:: fill_INTUIT()
 {
-    int rowCount =ui->MU_INTUIT_MET_TblWidget->rowCount();
-    ui->MU_INTUIT_MET_TblWidget->insertRow(rowCount);
+    int rowCount =ui->MU_intuit_TblWidget->rowCount();
+    ui->MU_intuit_TblWidget->insertRow(rowCount);
 
-    ui->MU_INTUIT_MET_TblWidget->setItem(rowCount,0, new QTableWidgetItem(struct_sampleInfo.sampleNo));         //检定任务单
-    ui->MU_INTUIT_MET_TblWidget->setItem(rowCount,1, new QTableWidgetItem(currentTime()));
-    ui->MU_INTUIT_MET_TblWidget->setItem(rowCount,2, new QTableWidgetItem("1"));
+    ui->MU_intuit_TblWidget->setItem(rowCount,0, new QTableWidgetItem(struct_sampleInfo.sampleNo));         //检定任务单
+    ui->MU_intuit_TblWidget->setItem(rowCount,1, new QTableWidgetItem(currentTime()));
+    ui->MU_intuit_TblWidget->setItem(rowCount,2, new QTableWidgetItem("1"));
 
 }
 
-void MainWindow::addNode_INTUIT(QString nodeName, QDomDocument &domDoc)
+void MainWindow::addNode_intuit(QString nodeName, QDomDocument &domDoc)
 {
     QDomElement  domElement,projectsElement,projectElement;
 
     int rowCount,columnCount;
-    rowCount = ui->MU_INTUIT_MET_TblWidget->rowCount();
-    columnCount = ui->MU_INTUIT_MET_TblWidget->columnCount();
+    rowCount = ui->MU_intuit_TblWidget->rowCount();
+    columnCount = ui->MU_intuit_TblWidget->columnCount();
     if(rowCount <= 0)
     {
         return ;
@@ -30,8 +30,8 @@ void MainWindow::addNode_INTUIT(QString nodeName, QDomDocument &domDoc)
     {
         for(int i=0;i<columnCount;i++)
         {
-            if(!ui->MU_INTUIT_MET_TblWidget->item(j,i))
-            ui->MU_INTUIT_MET_TblWidget->setItem(j,i, new QTableWidgetItem(""));
+            if(!ui->MU_intuit_TblWidget->item(j,i))
+            ui->MU_intuit_TblWidget->setItem(j,i, new QTableWidgetItem(""));
         }
     }
 
@@ -44,21 +44,13 @@ void MainWindow::addNode_INTUIT(QString nodeName, QDomDocument &domDoc)
 
     for(int i =0;i<rowCount;i++)//
     {
-        projectElement.setAttribute("testResult",ui->MU_INTUIT_MET_TblWidget->item(i,2)->text());
+        projectElement.setAttribute("testResult",ui->MU_intuit_TblWidget->item(i,2)->text());
 
         domElement = domDoc.createElement("testData");
         projectElement.appendChild( domElement );
 
-//        domElement.setAttribute("testPhase","");
-//        domElement.setAttribute("testGroup","");
-//        domElement.setAttribute("freq","");
-//        domElement.setAttribute("PF","");
-//        domElement.setAttribute("volt","");
-
-//        domElement.setAttribute("curr","");
-        domElement.setAttribute("conclusion",ui->MU_INTUIT_MET_TblWidget->item(i,2)->text());
-        domElement.setAttribute("refTime",ui->MU_INTUIT_MET_TblWidget->item(i,1)->text());
-//        domElement.setAttribute("strSampleID","");
+        domElement.setAttribute("conclusion",ui->MU_intuit_TblWidget->item(i,2)->text());
+        domElement.setAttribute("refTime",ui->MU_intuit_TblWidget->item(i,1)->text());
     }
 }
 

@@ -44,11 +44,10 @@ void MainWindow:: init_TblWidget()
     ui->EM_DETECT_OUT_EQUIP_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 //    ui->EM_DETECT_OUT_EQUIP_TblWidget->verticalHeader()->setHidden(true);
 
-    ui->MU_BASICERR_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
-    ui->MU_RSLT_TabWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
+    ui->MU_basicerr_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
+    ui->MU_rslt_TabWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 
-    ui->MU_INTUIT_MET_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
-    ui->MU_BASICERR_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
+    ui->MU_intuit_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_METER_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->EM_P_CODE_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 
@@ -59,14 +58,12 @@ void MainWindow:: init_TblWidget()
     ui->MU_sampleInfo_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_sampleInfo_TblWidget->verticalHeader()->setHidden(false);
 
-    ui->EM_down_TabWidget->setTabEnabled(2,false);
-    ui->EM_down_TabWidget->setTabEnabled(3,false);
-    ui->EM_down_TabWidget->setTabEnabled(4,false);
-
+    ui->MU_down_TabWidget->setTabEnabled(2,false);
+    ui->MU_down_TabWidget->setTabEnabled(3,false);
+    ui->MU_down_TabWidget->setTabEnabled(4,false);
 
     ui->MU_update_loadDetectTaskNo_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_update_loadDetectTaskNo_TblWidget->verticalHeader()->setHidden(false);
-
 
 }
 
@@ -264,5 +261,6 @@ QString MainWindow::compare_DateTime(QString str1,QString str2)
     qDebug()<<QString::number(dateTime.toTime_t());
 #endif
 }
+
 
 

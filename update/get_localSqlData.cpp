@@ -22,24 +22,24 @@ bool MainWindow:: get_MdsTestData(QString ID)
 
     for(int j=0;j<sqlite_tableCal;j++)
     {
-        rowCount = ui->MU_BASICERR_TblWidget->rowCount();
-        ui->MU_BASICERR_TblWidget->insertRow(rowCount);//ID
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,0, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][0])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,1, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][1])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,2, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][2])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,3, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][3])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,4, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][4])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,5, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][5])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,6, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][6])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,7, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][7])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,8, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][8])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,9, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][9])));
+        rowCount = ui->MU_basicerr_TblWidget->rowCount();
+        ui->MU_basicerr_TblWidget->insertRow(rowCount);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,0, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][0])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,1, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][1])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,2, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][2])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,3, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][3])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,4, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][4])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,5, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][5])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,6, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][6])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,7, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][7])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,8, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][8])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,9, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][9])));
 
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,10, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][10])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,11, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][11])));
-        ui->MU_BASICERR_TblWidget->setItem(rowCount,12, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][12])));
-
-         ui->MU_BASICERR_TblWidget->setItem(rowCount,13, new QTableWidgetItem(ID));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,10, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][10])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,11, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][11])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,12, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][12])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,13, new QTableWidgetItem(JBWCSYJLDM_index(QString::fromLocal8Bit(sqlTemp[j][20]))));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,14, new QTableWidgetItem(ID));
      }
 
     return true;

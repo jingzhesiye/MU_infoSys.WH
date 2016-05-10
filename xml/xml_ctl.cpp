@@ -4,7 +4,7 @@
 #include "QDebug"
 
 //生成XML文件
-void MainWindow::on_EM_creat_xml_PsBtn_clicked()
+void MainWindow::on_MU_creat_xml_PsBtn_clicked()
 {
     QString  fileName ="e:/update.xml";//"./update.xml";//
     QFile *file;
@@ -26,8 +26,8 @@ void MainWindow::on_EM_creat_xml_PsBtn_clicked()
     }
 
     addNode_sample("sample",domDoc);
-    addNode_INTUIT("project",domDoc);
-    addNode_BASICERR("project",domDoc);
+    addNode_intuit("project",domDoc);
+    addNode_basicerr("project",domDoc);
     addNode_dispersion("project",domDoc);
     addNode_transmission("project",domDoc);
     addNode_integrity("project",domDoc);
@@ -40,8 +40,10 @@ void MainWindow::on_EM_creat_xml_PsBtn_clicked()
     showInformationBox(QString::fromUtf8("创建成功"));
 }
 
-void MainWindow::on_EM_save_XML_PsBtn_clicked()
+//测试用
+void MainWindow::on_MU_down_test_PsBtn_clicked()
 {
+
     QStringList strList;
     QDomDocument domDoc;
     QString  strTemp;

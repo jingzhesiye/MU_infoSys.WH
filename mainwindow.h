@@ -121,8 +121,8 @@ public:
 
     void   addNode_sample(QString nodeName,QDomDocument &domDoc);
     void   addNode_dispersion(QString nodeName, QDomDocument &domDoc);
-    void   addNode_BASICERR(QString nodeName, QDomDocument &domDoc);
-    void   addNode_INTUIT(QString nodeName, QDomDocument &domDoc);
+    void   addNode_basicerr(QString nodeName, QDomDocument &domDoc);
+    void   addNode_intuit(QString nodeName, QDomDocument &domDoc);
     void   addNode_integrity(QString nodeName, QDomDocument &domDoc);
     void   addNode_transmission(QString nodeName, QDomDocument &domDoc);
 
@@ -146,24 +146,28 @@ private slots:
 
     void on_EM_down_saveLocalSql_PsBtn_clicked();
 
-    void on_EM_options_deleteLocalSqlAll_PsBtn_clicked();
-
     void on_EM_down_deleteLocalSqlItem_PsBtn_clicked();
 
-    void on_EM_update_loadLocalSql_PsBtn_clicked();
-
-    void on_EM_update_loadDetectTaskNo_PsBtn_clicked();
     void on_EM_options_setArg_Oracle_PsBtn_clicked();
 
     void on_EM_options_detectEquipNo_PsBtn_clicked();
-    void on_EM_save_XML_PsBtn_clicked();
 
     void on_EM_down_sampleInfo_PsBtn_clicked();
-    void on_EM_update_results_PsBtn_clicked();
 
-    void on_EM_creat_xml_PsBtn_clicked();
+    void on_MU_update_searchBarCode_LnEdit_textChanged(const QString &arg1);
 
-    void on_EM_update_searchBarCode_LnEdit_textChanged(const QString &arg1);
+    void on_MU_update_loadLocalSql_PsBtn_clicked();
+
+    void on_MU_update_loadDetectTaskNo_PsBtn_clicked();
+
+    void on_MU_down_test_PsBtn_clicked();
+
+    void on_MU_options_deleteLocalSqlAll_PsBtn_clicked();
+
+
+    void on_MU_creat_xml_PsBtn_clicked();
+
+    void on_MU_update_results_PsBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

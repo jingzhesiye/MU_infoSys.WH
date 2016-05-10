@@ -82,8 +82,9 @@ void MainWindow::on_EM_options_setArg_localSqlPath_PsBtn_clicked()
        }
 }
 
-//清除 所有数据：MT_P_CODE
-void MainWindow::on_EM_options_deleteLocalSqlAll_PsBtn_clicked()
+//清除 所有下载的数据库数据
+
+void MainWindow::on_MU_options_deleteLocalSqlAll_PsBtn_clicked()
 {
     switch(QMessageBox::question(this,QString::fromUtf8("信息提醒"),QString::fromUtf8("是否清空从电能表获取的数据库？"),
                                  QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))

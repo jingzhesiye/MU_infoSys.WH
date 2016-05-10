@@ -6,7 +6,7 @@
 #include "QTime"
 
 //加载当前数据库里面的下载的条形码
-void MainWindow::on_EM_update_searchBarCode_LnEdit_textChanged(const QString &arg1)
+void MainWindow::on_MU_update_searchBarCode_LnEdit_textChanged(const QString &arg1)
 {
     QString sampleNo,ID;
     remove_TblWdiget_Row(ui->MU_update_loadDetectTaskNo_TblWidget);
@@ -30,15 +30,11 @@ void MainWindow::on_EM_update_searchBarCode_LnEdit_textChanged(const QString &ar
 }
 
 //加载当前数据库里面的下载的所有条形码
-void MainWindow::on_EM_update_loadDetectTaskNo_PsBtn_clicked()
+void MainWindow::on_MU_update_loadDetectTaskNo_PsBtn_clicked()
 {
-    struct  testList testListTemp;
-    QString str1,ID;
-
     remove_TblWdiget_Row(ui->MU_update_loadDetectTaskNo_TblWidget);
     get_checkParameter();
 
-#if 1
     int rowCount=ui->MU_update_loadDetectTaskNo_TblWidget->rowCount();
     int sqlItemCount=LocalSqlSum;
     for(int i=0;i<sqlItemCount;i++)
@@ -48,19 +44,19 @@ void MainWindow::on_EM_update_loadDetectTaskNo_PsBtn_clicked()
         ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,1, new QTableWidgetItem(strArray[19][i]));
         ui->MU_update_loadDetectTaskNo_TblWidget->item(rowCount,0)->setCheckState(Qt::Unchecked);
     }
-#endif
+
 }
 
 //根据任务单编号当前数据库里面的检定数据
-void MainWindow::on_EM_update_loadLocalSql_PsBtn_clicked()
+void MainWindow::on_MU_update_loadLocalSql_PsBtn_clicked()
 {
     QString sampleNo,ID,strExec;
     char intCheckCount =0;
     setCursor(QCursor(Qt::WaitCursor));
 
-    remove_TblWdiget_Row(ui->MU_INTUIT_MET_TblWidget);
-    remove_TblWdiget_Row(ui->MU_BASICERR_TblWidget);
-    remove_TblWdiget_Row(ui->MU_RSLT_TabWidget);
+    remove_TblWdiget_Row(ui->MU_intuit_TblWidget);
+    remove_TblWdiget_Row(ui->MU_basicerr_TblWidget);
+    remove_TblWdiget_Row(ui->MU_rslt_TabWidget);
     remove_TblWdiget_Row(ui->MU_integrity_TblWidget);
     remove_TblWdiget_Row(ui->MU_transmission_TblWidget);
     remove_TblWdiget_Row(ui->MU_dispersion_TblWidget);
@@ -76,6 +72,7 @@ void MainWindow::on_EM_update_loadLocalSql_PsBtn_clicked()
                 showInformationBox(QString::fromUtf8("每次只能勾选一条条形码，当前超出"));
                 setCursor(QCursor(Qt::ArrowCursor));
                 return;
+               // qDebug()<<"fasfd";
             }
 
             sampleNo = ui->MU_update_loadDetectTaskNo_TblWidget->item(i,0)->text();
@@ -100,7 +97,6 @@ void MainWindow::on_EM_update_loadLocalSql_PsBtn_clicked()
 
                     fill_rslt(ID);             //检测总结
                  }
-
              }
              else
              {
