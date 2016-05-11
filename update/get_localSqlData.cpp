@@ -10,6 +10,9 @@ char sqlTemp[4000][100][3000];//1.数目；2.内容个数3.长度
 int  sqlite_RowCnt;  //一个表的行数
 int  sqlite_tableCal;//表的数目
 
+//有效值 %f
+//比差 %0.3f
+//角差 %0.2f
 
 bool MainWindow:: get_MdsTestData(QString ID)
 {
@@ -19,7 +22,7 @@ bool MainWindow:: get_MdsTestData(QString ID)
     sql_exec(str1.toLatin1().data());
 
     int rowCount ;
-
+    float floatTemp;
     for(int j=0;j<sqlite_tableCal;j++)
     {
         rowCount = ui->MU_basicerr_TblWidget->rowCount();
@@ -28,14 +31,30 @@ bool MainWindow:: get_MdsTestData(QString ID)
         ui->MU_basicerr_TblWidget->setItem(rowCount,1, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][1])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,2, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][2])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,3, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][3])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,4, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][4])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,5, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][5])));
+
+        str1 =QString::fromUtf8(sqlTemp[j][4]);
+        floatTemp = str1.toFloat(0);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,4, new QTableWidgetItem(QString::number(floatTemp,'d',3)));
+
+        str1 =QString::fromUtf8(sqlTemp[j][5]);
+        floatTemp = str1.toFloat(0);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,5, new QTableWidgetItem(QString::number(floatTemp,'d',3)));
+
         ui->MU_basicerr_TblWidget->setItem(rowCount,6, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][6])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,7, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][7])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,8, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][8])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,9, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][9])));
 
-        ui->MU_basicerr_TblWidget->setItem(rowCount,10, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][10])));
+        str1 =QString::fromUtf8(sqlTemp[j][8]);
+        floatTemp = str1.toFloat(0);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,8, new QTableWidgetItem(QString::number(floatTemp,'d',3))); //比差
+
+        str1 =QString::fromUtf8(sqlTemp[j][9]);
+        floatTemp = str1.toFloat(0);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,9, new QTableWidgetItem(QString::number(floatTemp,'d',3)));  //角差
+
+        str1 =QString::fromUtf8(sqlTemp[j][10]);
+        floatTemp = str1.toFloat(0);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,10, new QTableWidgetItem(QString::number(floatTemp,'d',3)));  //频差
+
         ui->MU_basicerr_TblWidget->setItem(rowCount,11, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][11])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,12, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][12])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,13, new QTableWidgetItem(JBWCSYJLDM_index(QString::fromLocal8Bit(sqlTemp[j][20]))));

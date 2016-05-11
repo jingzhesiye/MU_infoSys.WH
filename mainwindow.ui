@@ -2019,7 +2019,7 @@
               </sizepolicy>
              </property>
              <property name="currentIndex">
-              <number>5</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="MU_intuit_tab">
               <attribute name="title">
@@ -2046,7 +2046,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>检查结论</string>
+                   <string>结论</string>
                   </property>
                  </column>
                 </widget>
@@ -2068,7 +2068,7 @@
                 <widget class="QTableWidget" name="MU_basicerr_TblWidget">
                  <column>
                   <property name="text">
-                   <string>1条形码</string>
+                   <string>1.条形码</string>
                   </property>
                  </column>
                  <column>
@@ -2186,7 +2186,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>5.测试结论</string>
+                   <string>5.结论</string>
                   </property>
                  </column>
                  <column>
@@ -2295,7 +2295,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>最大离散度</string>
+                   <string>5.最大离散度</string>
                   </property>
                  </column>
                  <column>
@@ -2327,7 +2327,7 @@
                 <widget class="QTableWidget" name="MU_rslt_TabWidget">
                  <column>
                   <property name="text">
-                   <string>1条形码</string>
+                   <string>1.条形码</string>
                   </property>
                  </column>
                  <column>
@@ -2397,7 +2397,7 @@
                  </column>
                  <column>
                   <property name="text">
-                   <string>15审核状态</string>
+                   <string>15.审核状态</string>
                   </property>
                  </column>
                  <column>

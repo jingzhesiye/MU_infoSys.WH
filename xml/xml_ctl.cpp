@@ -43,10 +43,10 @@ void MainWindow::on_MU_creat_xml_PsBtn_clicked()
 //测试用
 void MainWindow::on_MU_down_test_PsBtn_clicked()
 {
-
     QStringList strList;
     QDomDocument domDoc;
     QString  strTemp;
+
     if(!load_xmlFile("e:/down1.xml",domDoc))
     {
         save_xmlFile("e:/sampleInfo.xml",domDoc);

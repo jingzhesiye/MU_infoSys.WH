@@ -39,7 +39,6 @@ void MainWindow::addNode_intuit(QString nodeName, QDomDocument &domDoc)
     projectElement = domDoc.createElement(nodeName);
     projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
     projectElement.setAttribute("projectName",QString::fromUtf8("外观试验"));
-   // projectElement.setAttribute("testResult",my_CONC_CODE.INTUIT);
     projectsElement.appendChild( projectElement );
 
     for(int i =0;i<rowCount;i++)//
@@ -50,7 +49,7 @@ void MainWindow::addNode_intuit(QString nodeName, QDomDocument &domDoc)
         projectElement.appendChild( domElement );
 
         domElement.setAttribute("conclusion",ui->MU_intuit_TblWidget->item(i,2)->text());
-        domElement.setAttribute("refTime",ui->MU_intuit_TblWidget->item(i,1)->text());
+        domElement.setAttribute("refTime",struct_testList.startTestTime);
     }
 }
 

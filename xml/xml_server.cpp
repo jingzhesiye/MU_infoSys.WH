@@ -117,6 +117,12 @@ void MainWindow::on_MU_update_results_PsBtn_clicked()
     //qDebug()<<domDoc.toString();
 
 
+//    QString Utf8_To_GB(QString strText) //万一本来就是GBK的呢。。。？
+//    {
+//           return QString::fromUtf8(strText.toLocal8Bit().data());
+//    }
+
+
 //    QTextCodec *gbk = QTextCodec::codecForName("GB18030");
 //    QTextCodec *utf8 = QTextCodec::codecForName("UTF-8");
 //    QString g2u = gbk->toUnicode(gbk->fromUnicode(inStr));              // gbk  convert utf8
@@ -148,11 +154,10 @@ void MainWindow::on_MU_update_results_PsBtn_clicked()
     sendProjectResults.projects=std::string(strTemp.toUtf8());
 #endif
 
-
     //soap.sendProjectResults(endPoint,action,&sendProjectResults, resp);
-//  qDebug()<<QString(QString::fromUtf8((*resp.out).c_str()));
-//  qDebug()<<QString::fromUtf8(resp.sendProjectResultsReturn.c_str());
-    // showInformationBox(QString::fromUtf8(resp.sendProjectResultsReturn.c_str()));
+    //qDebug()<<QString(QString::fromUtf8((*resp.out).c_str()));
+    //qDebug()<<QString::fromUtf8(resp.sendProjectResultsReturn.c_str());
+    //showInformationBox(QString::fromUtf8(resp.sendProjectResultsReturn.c_str()));
     setCursor(QCursor(Qt::ArrowCursor));
 #endif
 }

@@ -85,9 +85,7 @@ void MainWindow::on_MU_update_loadLocalSql_PsBtn_clicked()
                 if(SqlTempToQstring(strExec,20))       //获取sampleInfo信息(数据库执行语句,数据库长度)
                 {
                     fill_sampleInfo();                  //将sampleInfo信息填充
-                    fill_INTUIT();                      //外观检查结论
                     fill_BASICERR(ID);                  //基本误差
-
                     if(get_MdsFuncData(ID))
                     {
                         fill_integrity(sampleNo);        //完整性
@@ -96,6 +94,7 @@ void MainWindow::on_MU_update_loadLocalSql_PsBtn_clicked()
                     }
 
                     fill_rslt(ID);             //检测总结
+                    fill_INTUIT();                      //外观检查结论
                  }
              }
              else

@@ -1498,7 +1498,7 @@ public:
 
         stackedWidget->setCurrentIndex(1);
         MU_down_TabWidget->setCurrentIndex(3);
-        MU_update_TabWidget->setCurrentIndex(5);
+        MU_update_TabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -2091,10 +2091,10 @@ public:
         QTableWidgetItem *___qtablewidgetitem264 = MU_intuit_TblWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem264->setText(QApplication::translate("MainWindow", "\346\243\200\345\256\232\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem265 = MU_intuit_TblWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem265->setText(QApplication::translate("MainWindow", "\346\243\200\346\237\245\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem265->setText(QApplication::translate("MainWindow", "\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
         MU_update_TabWidget->setTabText(MU_update_TabWidget->indexOf(MU_intuit_tab), QApplication::translate("MainWindow", "\345\244\226\350\247\202\346\243\200\346\237\245\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem266 = MU_basicerr_TblWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem266->setText(QApplication::translate("MainWindow", "1\346\235\241\345\275\242\347\240\201", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem266->setText(QApplication::translate("MainWindow", "1.\346\235\241\345\275\242\347\240\201", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem267 = MU_basicerr_TblWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem267->setText(QApplication::translate("MainWindow", "\351\200\232\351\201\223\345\217\267", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem268 = MU_basicerr_TblWidget->horizontalHeaderItem(2);
@@ -2133,7 +2133,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem284 = MU_integrity_TblWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem284->setText(QApplication::translate("MainWindow", "\346\265\213\350\257\225\346\227\266\351\225\277", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem285 = MU_integrity_TblWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem285->setText(QApplication::translate("MainWindow", "5.\346\265\213\350\257\225\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem285->setText(QApplication::translate("MainWindow", "5.\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem286 = MU_integrity_TblWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem286->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\265\213\350\257\225\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem287 = MU_integrity_TblWidget->horizontalHeaderItem(6);
@@ -2165,14 +2165,14 @@ public:
         QTableWidgetItem *___qtablewidgetitem299 = MU_dispersion_TblWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem299->setText(QApplication::translate("MainWindow", "\346\265\213\350\257\225\346\227\266\351\225\277", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem300 = MU_dispersion_TblWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem300->setText(QApplication::translate("MainWindow", "\346\234\200\345\244\247\347\246\273\346\225\243\345\272\246", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem300->setText(QApplication::translate("MainWindow", "5.\346\234\200\345\244\247\347\246\273\346\225\243\345\272\246", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem301 = MU_dispersion_TblWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem301->setText(QApplication::translate("MainWindow", "\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem302 = MU_dispersion_TblWidget->horizontalHeaderItem(6);
         ___qtablewidgetitem302->setText(QApplication::translate("MainWindow", "ID", 0, QApplication::UnicodeUTF8));
         MU_update_TabWidget->setTabText(MU_update_TabWidget->indexOf(MU_dispersion_tab), QApplication::translate("MainWindow", "\347\246\273\346\225\243\345\272\246", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem303 = MU_rslt_TabWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem303->setText(QApplication::translate("MainWindow", "1\346\235\241\345\275\242\347\240\201", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem303->setText(QApplication::translate("MainWindow", "1.\346\235\241\345\275\242\347\240\201", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem304 = MU_rslt_TabWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem304->setText(QApplication::translate("MainWindow", "MuId ", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem305 = MU_rslt_TabWidget->horizontalHeaderItem(2);
@@ -2200,7 +2200,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem316 = MU_rslt_TabWidget->horizontalHeaderItem(13);
         ___qtablewidgetitem316->setText(QApplication::translate("MainWindow", "\345\256\241\346\240\270\345\221\230", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem317 = MU_rslt_TabWidget->horizontalHeaderItem(14);
-        ___qtablewidgetitem317->setText(QApplication::translate("MainWindow", "15\345\256\241\346\240\270\347\212\266\346\200\201", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem317->setText(QApplication::translate("MainWindow", "15.\345\256\241\346\240\270\347\212\266\346\200\201", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem318 = MU_rslt_TabWidget->horizontalHeaderItem(15);
         ___qtablewidgetitem318->setText(QApplication::translate("MainWindow", "\347\273\223\350\256\272", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem319 = MU_rslt_TabWidget->horizontalHeaderItem(16);
