@@ -41,15 +41,12 @@ void MainWindow:: init_TblWidget()
     ui->EM_DETECT_TASK_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 //  ui->EM_DETECT_TASK_TblWidget->verticalHeader()->setHidden(true);
 
-    ui->EM_DETECT_OUT_EQUIP_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
-//    ui->EM_DETECT_OUT_EQUIP_TblWidget->verticalHeader()->setHidden(true);
 
     ui->MU_basicerr_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_rslt_TabWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 
     ui->MU_intuit_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_METER_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
-    ui->EM_P_CODE_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
 
     ui->MU_integrity_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_transmission_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
@@ -64,6 +61,9 @@ void MainWindow:: init_TblWidget()
 
     ui->MU_update_loadDetectTaskNo_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_update_loadDetectTaskNo_TblWidget->verticalHeader()->setHidden(false);
+
+    strUpdatePath ="./MU_update.xml"; //"d:/update.xml";//"d:/update.xml";
+    strDownPath ="./MU_down.xml";
 
 }
 
@@ -104,6 +104,23 @@ void MainWindow:: set_localSqlPath()
        writeIni("localSql/DETECT_QEUIP_NO",strTemp);
     }
     ui->EM_options_detectEquipNo_LnEdit->setText(strTemp);
+
+    strTemp =configIniRead->value("sysParams/startDate").toString();
+    if(strTemp.isEmpty())
+    {
+       strTemp= "2016-01-10";
+       writeIni("sysParams/startDate",strTemp);
+    }
+    ui->MU_update_startDate_DtEdit->setDate( QDate::fromString(strTemp,"yyyy-MM-dd"));
+
+    strTemp =configIniRead->value("sysParams/endDate").toString();
+    if(strTemp.isEmpty())
+    {
+       strTemp= "2016-05-10";
+       writeIni("sysParams/endDate",strTemp);
+    }
+    ui->MU_update_endDate_DtEdit->setDate( QDate::fromString(strTemp,"yyyy-MM-dd"));
+
 }
 
 void MainWindow::showInformationBox(QString strTemp)
@@ -157,7 +174,7 @@ QString MainWindow:: get_DB_FileName()
    QString   strFileName;
    QFileInfo fileInfo;
 
-   setCursor(QCursor(Qt::WaitCursor));
+   setCursor(QCursor(Qt::BusyCursor));
 
    if(1)
    {
@@ -259,8 +276,12 @@ QString MainWindow::compare_DateTime(QString str1,QString str2)
     qDebug()<<dateTime.toString("yyyy-MM-dd");
     qDebug()<<dateTime.toString("hh-mm-ss.zzz");
     qDebug()<<QString::number(dateTime.toTime_t());
+    QString strStartDate;
+//    strStartDate = ui->MU_update_startDate_DtEdit->date().toString("yyyy-MM-dd");
+//    qDebug()<<strStartDate;
+    //strStartDate.t
+
+    ui->MU_update_startDate_DtEdit->setDate( QDate::fromString("2013-10-10","yyyy-MM-dd"));
 #endif
 }
-
-
 

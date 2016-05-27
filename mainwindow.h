@@ -41,8 +41,10 @@ public:
     void  open_localSql();
     void  set_localSqlPath();
 
+    void  clear_sqlTemp();
     int   sql_exec(const char *);
     void  get_checkParameter();
+    QString get_isUpdate_from_sampleInfo(QString  sampleNo);
     bool  SqlTempToQstring(QString strExec,int ItemCount);
 
     QString indexOfTable(QString strSou,QString strKey);
@@ -63,24 +65,17 @@ public:
     QString EFFECT_index(QString strTemp);
 
     //下载表格.
-    void dwon_DETECT_OUT_EQUIP(QString barCode);
     void down_MT_METER( QString strBarCode);
-    void down_MT_P_CODE(QString barCode ,QString strValue);
     void down_MT_DETECT_TASK(QString barCode,QString detectTaskNo);//b7
 
     //保存表格
     void save_sampleInfo();
-    void save_MT_P_CODE();
     void save_MT_METER();
     void save_MT_DETECT_TASK();
-    void save_MT_DETECT_OUT_EQUIP();
 
     bool get_MdsTestData(QString ID);
     bool get_MdsFuncData(QString ID);
     void getDataFromLocalSqlToTblWidget(QString strExec,QTableWidget * tblWidget,int columnCount);
-
-    bool update_getDETedTestData(QString SYS_NO,QString DETECT_TASK_NO);
-    bool update_setResults(QString SYS_NO,QString DETECT_TASK_NO,QString VALID_QTY);
 
     bool sqlQueryExec(QString tabelName,QString BarCode,QString strExec,QString strImfo);
     bool delete_destSql_tableItem(QString tabelName,QString barCode);
@@ -96,7 +91,6 @@ public:
     bool fill_transmission(QString sampleNo);
     bool fill_rslt(QString ID);
     bool fill_dispersion(QString ID);
-    void fill_DETECT_OUT_EQUIP();
     void fill_sampleInfo();
 
     bool  get_testList(QString strID);
@@ -118,6 +112,7 @@ public:
 
     bool  open_xml(QString filename);
     bool  search_domNode(QString,const QDomDocument );
+    bool  MU_creat_xml();
 
     void   addNode_sample(QString nodeName,QDomDocument &domDoc);
     void   addNode_dispersion(QString nodeName, QDomDocument &domDoc);
@@ -164,10 +159,11 @@ private slots:
 
     void on_MU_options_deleteLocalSqlAll_PsBtn_clicked();
 
-
-    void on_MU_creat_xml_PsBtn_clicked();
-
     void on_MU_update_results_PsBtn_clicked();
+
+    void on_MU_update_startDate_DtEdit_dateChanged(const QDate &date);
+
+    void on_MU_update_endDate_DtEdit_dateChanged(const QDate &date);
 
 private:
     Ui::MainWindow *ui;
@@ -182,7 +178,6 @@ private:
     //STRUCT_MT_DETECT_OUT_EQUIP my_MT_DETECT_OUT_EQUIP;
 
     STRUCT_DOWN_INFO           my_DOWN_INFO;
-
     QDomDocument g_domDoc;
     QMap<QString,QString> g_map;
 
@@ -197,6 +192,8 @@ private:
 public:
 //    char localSqlArrayTemp[1000][1000];
     int  LocalSqlSum;//每次执行sql_exec所产生的数目
+    QString strUpdatePath;
+    QString strDownPath;
 };
 
 #endif // MAINWINDOW_H

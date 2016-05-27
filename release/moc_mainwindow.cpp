@@ -1,7 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.5)
+** Created: Tue May 24 12:49:38 2016
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -9,8 +10,8 @@
 #include "../mainwindow.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 63
-#error "This file was generated using the moc from 4.8.5. It"
+#elif Q_MOC_OUTPUT_REVISION != 62
+#error "This file was generated using the moc from 4.7.4. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,10 +20,10 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_MainWindow[] = {
 
  // content:
-       6,       // revision
+       5,       // revision
        0,       // classname
        0,    0, // classinfo
-      19,   14, // methods
+      20,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -48,7 +49,8 @@ static const uint qt_meta_data_MainWindow[] = {
      617,   11,   11,   11, 0x08,
      649,   11,   11,   11, 0x08,
      697,   11,   11,   11, 0x08,
-     729,   11,   11,   11, 0x08,
+     739,  734,   11,   11, 0x08,
+     788,  734,   11,   11, 0x08,
 
        0        // eod
 };
@@ -71,47 +73,14 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_MU_update_loadDetectTaskNo_PsBtn_clicked()\0"
     "on_MU_down_test_PsBtn_clicked()\0"
     "on_MU_options_deleteLocalSqlAll_PsBtn_clicked()\0"
-    "on_MU_creat_xml_PsBtn_clicked()\0"
     "on_MU_update_results_PsBtn_clicked()\0"
-};
-
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        MainWindow *_t = static_cast<MainWindow *>(_o);
-        switch (_id) {
-        case 0: _t->on_EM_down_Act_triggered(); break;
-        case 1: _t->on_EM_update_Act_triggered(); break;
-        case 2: _t->on_EM_options_Act_triggered(); break;
-        case 3: _t->on_EM_options_check_PsBtn_clicked(); break;
-        case 4: _t->on_EM_options_setArg_localSqlPath_PsBtn_clicked(); break;
-        case 5: _t->on_EM_down_loadLocalSql_PsBtn_clicked(); break;
-        case 6: _t->on_EM_down_clean_PsBtn_clicked(); break;
-        case 7: _t->on_EM_down_saveLocalSql_PsBtn_clicked(); break;
-        case 8: _t->on_EM_down_deleteLocalSqlItem_PsBtn_clicked(); break;
-        case 9: _t->on_EM_options_setArg_Oracle_PsBtn_clicked(); break;
-        case 10: _t->on_EM_options_detectEquipNo_PsBtn_clicked(); break;
-        case 11: _t->on_EM_down_sampleInfo_PsBtn_clicked(); break;
-        case 12: _t->on_MU_update_searchBarCode_LnEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 13: _t->on_MU_update_loadLocalSql_PsBtn_clicked(); break;
-        case 14: _t->on_MU_update_loadDetectTaskNo_PsBtn_clicked(); break;
-        case 15: _t->on_MU_down_test_PsBtn_clicked(); break;
-        case 16: _t->on_MU_options_deleteLocalSqlAll_PsBtn_clicked(); break;
-        case 17: _t->on_MU_creat_xml_PsBtn_clicked(); break;
-        case 18: _t->on_MU_update_results_PsBtn_clicked(); break;
-        default: ;
-        }
-    }
-}
-
-const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {
-    0,  qt_static_metacall 
+    "date\0on_MU_update_startDate_DtEdit_dateChanged(QDate)\0"
+    "on_MU_update_endDate_DtEdit_dateChanged(QDate)\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
     { &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindow,
-      qt_meta_data_MainWindow, &staticMetaObjectExtraData }
+      qt_meta_data_MainWindow, 0 }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -137,9 +106,30 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 19)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 19;
+        switch (_id) {
+        case 0: on_EM_down_Act_triggered(); break;
+        case 1: on_EM_update_Act_triggered(); break;
+        case 2: on_EM_options_Act_triggered(); break;
+        case 3: on_EM_options_check_PsBtn_clicked(); break;
+        case 4: on_EM_options_setArg_localSqlPath_PsBtn_clicked(); break;
+        case 5: on_EM_down_loadLocalSql_PsBtn_clicked(); break;
+        case 6: on_EM_down_clean_PsBtn_clicked(); break;
+        case 7: on_EM_down_saveLocalSql_PsBtn_clicked(); break;
+        case 8: on_EM_down_deleteLocalSqlItem_PsBtn_clicked(); break;
+        case 9: on_EM_options_setArg_Oracle_PsBtn_clicked(); break;
+        case 10: on_EM_options_detectEquipNo_PsBtn_clicked(); break;
+        case 11: on_EM_down_sampleInfo_PsBtn_clicked(); break;
+        case 12: on_MU_update_searchBarCode_LnEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 13: on_MU_update_loadLocalSql_PsBtn_clicked(); break;
+        case 14: on_MU_update_loadDetectTaskNo_PsBtn_clicked(); break;
+        case 15: on_MU_down_test_PsBtn_clicked(); break;
+        case 16: on_MU_options_deleteLocalSqlAll_PsBtn_clicked(); break;
+        case 17: on_MU_update_results_PsBtn_clicked(); break;
+        case 18: on_MU_update_startDate_DtEdit_dateChanged((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
+        case 19: on_MU_update_endDate_DtEdit_dateChanged((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
+        default: ;
+        }
+        _id -= 20;
     }
     return _id;
 }

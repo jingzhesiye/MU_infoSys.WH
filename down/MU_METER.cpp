@@ -13,6 +13,8 @@ void MainWindow::down_MT_METER(QString strBarCode)
     QSqlQuery  sqlQuery;
     QString    strExec;
     int rowCount;
+
+    clear_sqlTemp();
     strExec = QString("select * from  MT_METER where BAR_CODE ='%1' order by  WRITE_DATE desc").arg(strBarCode);
 
     //qDebug()<<strExec;
@@ -44,8 +46,8 @@ void MainWindow::down_MT_METER(QString strBarCode)
                 ui->MU_METER_TblWidget->setItem(rowCount,i,new QTableWidgetItem(sqlQuery.value(i).toString()));
             }
 
-            down_MT_P_CODE(strBarCode, my_DOWN_INFO.VALUE );
-            dwon_DETECT_OUT_EQUIP(strBarCode);
+            //down_MT_P_CODE(strBarCode, my_DOWN_INFO.VALUE );
+            //dwon_DETECT_OUT_EQUIP(strBarCode);
             down_MT_DETECT_TASK(strBarCode, my_DOWN_INFO.DETECT_TASK_NO);
         }
     }

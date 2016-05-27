@@ -1,3 +1,5 @@
+
+
 PRAGMA table_info([tablename])
 .schema tablename
 void MainWindow::delete_CONST()

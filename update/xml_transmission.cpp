@@ -55,21 +55,27 @@ void MainWindow::addNode_transmission(QString nodeName, QDomDocument &domDoc)
 
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
-    projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
-    projectElement.setAttribute("projectName",QString::fromUtf8("传输延时"));
+    projectElement.setAttribute("projectNo","PJ0200");
+    projectElement.setAttribute("projectName",QString::fromUtf8("传输延时试验"));
     projectsElement.appendChild( projectElement );
 
     for(int i =0;i<rowCount;i++)
     {
-        projectElement.setAttribute("spaceStartTime",ui->MU_transmission_TblWidget->item(i,1)->text());
-        projectElement.setAttribute("spaceEndTime",ui->MU_transmission_TblWidget->item(i,2)->text());
-        projectElement.setAttribute("inteTestTime",ui->MU_transmission_TblWidget->item(i,3)->text());
-        projectElement.setAttribute("transMaxDelay",ui->MU_transmission_TblWidget->item(i,4)->text());
-        projectElement.setAttribute("testResult",ui->MU_transmission_TblWidget->item(i,5)->text());
-
         domElement = domDoc.createElement("testData");
         projectElement.appendChild( domElement );
+
+        projectElement.setAttribute("result",ui->MU_transmission_TblWidget->item(i,5)->text());
         domElement.setAttribute("conclusion",ui->MU_transmission_TblWidget->item(i,5)->text());
+
+
+        domElement.setAttribute("startTestTime",ui->MU_transmission_TblWidget->item(i,1)->text());
+        domElement.setAttribute("endTestTime",ui->MU_transmission_TblWidget->item(i,2)->text());
+        domElement.setAttribute("testTime",ui->MU_transmission_TblWidget->item(i,3)->text());
+        domElement.setAttribute("maxTransferDelay",ui->MU_transmission_TblWidget->item(i,4)->text());
+        //domElement.setAttribute("testPhase","/");
+         domElement.setAttribute("testNum","0");
+       // domElement = domDoc.createElement("testData");
+
 
     }
 }

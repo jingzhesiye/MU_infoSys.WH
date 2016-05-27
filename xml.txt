@@ -1,3 +1,31 @@
+
+
+//测试用
+#if 0
+    QDomDocument domDoc;
+
+    if(!load_xmlFile("d:/update.xml",domDoc)) //d:/update.xml
+    {
+        setCursor(QCursor(Qt::ArrowCursor));
+        showInformationBox(QString::fromUtf8("当前目录找不到XML结论信息"));
+        return;
+    }
+#endif
+
+
+#if 0
+    if(!create_xml(fileName,"samples"))
+    {
+        return ;
+    }
+
+    if(!load_xmlFile(fileName,domDoc))
+    {
+        return ;
+    }
+#endif
+
+
       // std::cout<<resp.out<<std::endl;
        //std::cout<<*resp.out<<std::endl;
        //qDebug()<< QString(resp.out);
@@ -18,3 +46,13 @@
 
    qDebug()<<"hello"<<QString(QString::fromUtf8((*in0).c_str()));
 #endif
+
+std::string cstr;
+
+QString qstring;
+//****从std::string 到QString
+qstring = QString(QString::fromLocal8Bit(cstr.c_str()));
+
+//****从QString 到 std::string
+
+cstr = string((const char *)qstring.toLocal8Bit());

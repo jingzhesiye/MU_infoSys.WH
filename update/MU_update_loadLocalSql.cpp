@@ -8,7 +8,7 @@
 //加载当前数据库里面的下载的条形码
 void MainWindow::on_MU_update_searchBarCode_LnEdit_textChanged(const QString &arg1)
 {
-    QString sampleNo,ID;
+    QString sampleNo,ID,isUpdate;
     remove_TblWdiget_Row(ui->MU_update_loadDetectTaskNo_TblWidget);
     get_checkParameter();
     int rowCount;
@@ -16,14 +16,17 @@ void MainWindow::on_MU_update_searchBarCode_LnEdit_textChanged(const QString &ar
     for(int i=0;i<LocalSqlSum;i++)
     {
         sampleNo = strArray[0][i];
+        isUpdate = strArray[1][i];
          ID      = strArray[19][i];
 
+         //qDebug()<<sampleNo;
         if(arg1==sampleNo)
         {
             rowCount=ui->MU_update_loadDetectTaskNo_TblWidget->rowCount();
             ui->MU_update_loadDetectTaskNo_TblWidget->insertRow(rowCount);
-            ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,0, new QTableWidgetItem(sampleNo));
-            ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,1, new QTableWidgetItem(ID));
+            ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,0, new QTableWidgetItem(isUpdate));
+            ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,1, new QTableWidgetItem(sampleNo));
+            ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,2, new QTableWidgetItem(ID));
             ui->MU_update_loadDetectTaskNo_TblWidget->item(rowCount,0)->setCheckState(Qt::Unchecked);
         }
     }
@@ -40,8 +43,9 @@ void MainWindow::on_MU_update_loadDetectTaskNo_PsBtn_clicked()
     for(int i=0;i<sqlItemCount;i++)
     {
         ui->MU_update_loadDetectTaskNo_TblWidget->insertRow(rowCount);
-        ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,0, new QTableWidgetItem(strArray[0][i]));
-        ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,1, new QTableWidgetItem(strArray[19][i]));
+        ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,0, new QTableWidgetItem(strArray[1][i]));
+        ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,1, new QTableWidgetItem(strArray[0][i]));
+        ui->MU_update_loadDetectTaskNo_TblWidget->setItem(rowCount,2, new QTableWidgetItem(strArray[19][i]));
         ui->MU_update_loadDetectTaskNo_TblWidget->item(rowCount,0)->setCheckState(Qt::Unchecked);
     }
 
@@ -52,7 +56,7 @@ void MainWindow::on_MU_update_loadLocalSql_PsBtn_clicked()
 {
     QString sampleNo,ID,strExec;
     char intCheckCount =0;
-    setCursor(QCursor(Qt::WaitCursor));
+    setCursor(QCursor(Qt::BusyCursor));
 
     remove_TblWdiget_Row(ui->MU_intuit_TblWidget);
     remove_TblWdiget_Row(ui->MU_basicerr_TblWidget);
@@ -75,14 +79,14 @@ void MainWindow::on_MU_update_loadLocalSql_PsBtn_clicked()
                // qDebug()<<"fasfd";
             }
 
-            sampleNo = ui->MU_update_loadDetectTaskNo_TblWidget->item(i,0)->text();
-            ID       = ui->MU_update_loadDetectTaskNo_TblWidget->item(i,1)->text();
+            sampleNo = ui->MU_update_loadDetectTaskNo_TblWidget->item(i,1)->text();
+            ID       = ui->MU_update_loadDetectTaskNo_TblWidget->item(i,2)->text();
 
             strExec=QString("select * from sampleInfo where sampleNo ='%1';").arg(sampleNo);
 
              if(isLocalBarCodeExist(strExec,sampleNo)) //判断条形码是否有下载信息,没有的话不处理。
              {
-                if(SqlTempToQstring(strExec,20))       //获取sampleInfo信息(数据库执行语句,数据库长度)
+                if(SqlTempToQstring(strExec,21))       //获取sampleInfo信息(数据库执行语句,数据库长度)
                 {
                     fill_sampleInfo();                  //将sampleInfo信息填充
                     fill_BASICERR(ID);                  //基本误差

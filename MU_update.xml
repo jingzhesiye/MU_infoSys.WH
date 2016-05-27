@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samples>
+    <sample dataSaveTime="2016-05-24 10:51:49" sampleNo="JLXC-160518-1-1" sourceMac="00-0C-CD-01-01-39" checkWet="85%" testMan="" synchroMode="IRIG_B码 同步模式" ASDUNum="1" checkTemp="20" checkDate="2016-05-24 10:50:18" checkMan="" appId="16394" targetMac="01-0C-CD-04-00-0A" svId="ML2203AMUSV/LLN0$MS$MSVCB01" checkCurr="0.0" factory="星龙" tableInterface="1" ratedDelay="1308" samplingRate="4000" checkVolt="0.0" passNum="21" checkResult="0" startTestTime="2016-05-24 10:50:18">
+        <projects>
+            <project projectName="精度试验" projectNo="PJ0202" result="0">
+                <testData conclusion="0" curr="120" measureKind="UA" chIndex="20">
+                    <error>69.2803</error>
+                    <error>69.2733</error>
+                    <error>-0.006</error>
+                    <error>-2.877</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="100" measureKind="UA" chIndex="20">
+                    <error>57.7342</error>
+                    <error>57.7221</error>
+                    <error>-0.020</error>
+                    <error>-2.264</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="80" measureKind="UA" chIndex="20">
+                    <error>46.1873</error>
+                    <error>46.1649</error>
+                    <error>-0.048</error>
+                    <error>-1.166</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="120" measureKind="UA" chIndex="21">
+                    <error>69.2803</error>
+                    <error>69.2711</error>
+                    <error>-0.009</error>
+                    <error>-2.696</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="100" measureKind="UA" chIndex="21">
+                    <error>57.7342</error>
+                    <error>57.7200</error>
+                    <error>-0.023</error>
+                    <error>-2.081</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="80" measureKind="UA" chIndex="21">
+                    <error>46.1873</error>
+                    <error>46.1631</error>
+                    <error>-0.052</error>
+                    <error>-0.996</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="120" measureKind="IA" chIndex="8">
+                    <error>6.0008</error>
+                    <error>6.0016</error>
+                    <error>0.776</error>
+                    <error>-0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="100" measureKind="IA" chIndex="8">
+                    <error>5.0004</error>
+                    <error>5.0014</error>
+                    <error>1.227</error>
+                    <error>0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="20" measureKind="IA" chIndex="8">
+                    <error>1.0001</error>
+                    <error>1.0008</error>
+                    <error>6.242</error>
+                    <error>-0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="5" measureKind="IA" chIndex="8">
+                    <error>0.2500</error>
+                    <error>0.2503</error>
+                    <error>9.119</error>
+                    <error>0.002</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="120" measureKind="IB" chIndex="9">
+                    <error>6.0006</error>
+                    <error>6.0031</error>
+                    <error>-0.053</error>
+                    <error>0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="100" measureKind="IB" chIndex="9">
+                    <error>5.0001</error>
+                    <error>5.0025</error>
+                    <error>-0.047</error>
+                    <error>-0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="20" measureKind="IB" chIndex="9">
+                    <error>1.0001</error>
+                    <error>1.0009</error>
+                    <error>6.296</error>
+                    <error>0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="5" measureKind="IB" chIndex="9">
+                    <error>0.2500</error>
+                    <error>0.2504</error>
+                    <error>9.945</error>
+                    <error>0.001</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="120" measureKind="IC" chIndex="10">
+                    <error>6.0009</error>
+                    <error>6.0032</error>
+                    <error>2.232</error>
+                    <error>-0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="100" measureKind="IC" chIndex="10">
+                    <error>5.0003</error>
+                    <error>5.0024</error>
+                    <error>2.957</error>
+                    <error>-0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="20" measureKind="IC" chIndex="10">
+                    <error>1.0000</error>
+                    <error>1.0011</error>
+                    <error>10.423</error>
+                    <error>-0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+                <testData conclusion="0" curr="5" measureKind="IC" chIndex="10">
+                    <error>0.2500</error>
+                    <error>0.2504</error>
+                    <error>14.405</error>
+                    <error>0.000</error>
+                    <error>0.0</error>
+                    <error>合格</error>
+                </testData>
+            </project>
+            <project projectName="离散度试验" projectNo="PJ0201" result="1">
+                <testData conclusion="1" testTime="00天00:00:00" startTestTime="2016-05-24 10:50:18" maxDispersion="0.0" testNum="0" endTestTime="2016-05-24 10:50:18"/>
+            </project>
+            <project projectName="传输延时试验" projectNo="PJ0200" result="1">
+                <testData conclusion="1" testTime="00天00:00:00" startTestTime="2016-05-24 10:50:18" maxTransferDelay="0.0" testNum="0" endTestTime="2016-05-24 10:50:18"/>
+            </project>
+            <project projectName="完整性试验" projectNo="PJ0199" result="1">
+                <testData totalPoints="0" conclusion="1" testTime="00天00:00:00" startTestTime="2016-05-24 10:50:18" testNum="0" lostPoints="0" endTestTime="2016-05-24 10:50:18"/>
+            </project>
+        </projects>
+    </sample>
+</samples>

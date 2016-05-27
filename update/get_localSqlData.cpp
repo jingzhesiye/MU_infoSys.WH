@@ -18,7 +18,9 @@ bool MainWindow:: get_MdsTestData(QString ID)
 {
     QString str1;
 
-    str1=QString("select * from MdsTestData where testId  ='%1'").arg(ID);
+    clear_sqlTemp();
+    //str1=QString("select * from MdsTestData where testId  ='%1'").arg(ID);
+    str1=QString("select testId,chIndex,chMap,point,rms_B,rms_X ,freq_B,freq_X,vError,qError,freqError,vErrorArray,qErrorArray,otherInformation,vChange,qChange,vLimit,qLimit,vResult,qResult,result from MdsTestData where testId  ='%1'").arg(ID);
     sql_exec(str1.toLatin1().data());
 
     int rowCount ;
@@ -27,18 +29,21 @@ bool MainWindow:: get_MdsTestData(QString ID)
     {
         rowCount = ui->MU_basicerr_TblWidget->rowCount();
         ui->MU_basicerr_TblWidget->insertRow(rowCount);
-        ui->MU_basicerr_TblWidget->setItem(rowCount,0, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][0])));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,0, new QTableWidgetItem(struct_sampleInfo.sampleNo));
         ui->MU_basicerr_TblWidget->setItem(rowCount,1, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][1])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,2, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][2])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,3, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][3])));
+
+        str1 =QString::fromUtf8(sqlTemp[j][3]);
+        floatTemp = str1.toFloat(0);
+        ui->MU_basicerr_TblWidget->setItem(rowCount,3, new QTableWidgetItem(QString::number(floatTemp,'d',0)));
 
         str1 =QString::fromUtf8(sqlTemp[j][4]);
         floatTemp = str1.toFloat(0);
-        ui->MU_basicerr_TblWidget->setItem(rowCount,4, new QTableWidgetItem(QString::number(floatTemp,'d',3)));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,4, new QTableWidgetItem(QString::number(floatTemp,'d',4)));
 
         str1 =QString::fromUtf8(sqlTemp[j][5]);
         floatTemp = str1.toFloat(0);
-        ui->MU_basicerr_TblWidget->setItem(rowCount,5, new QTableWidgetItem(QString::number(floatTemp,'d',3)));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,5, new QTableWidgetItem(QString::number(floatTemp,'d',4)));
 
         ui->MU_basicerr_TblWidget->setItem(rowCount,6, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][6])));
         ui->MU_basicerr_TblWidget->setItem(rowCount,7, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][7])));
@@ -56,9 +61,17 @@ bool MainWindow:: get_MdsTestData(QString ID)
         ui->MU_basicerr_TblWidget->setItem(rowCount,10, new QTableWidgetItem(QString::number(floatTemp,'d',3)));  //频差
 
         ui->MU_basicerr_TblWidget->setItem(rowCount,11, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][11])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,12, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][12])));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,13, new QTableWidgetItem(JBWCSYJLDM_index(QString::fromLocal8Bit(sqlTemp[j][20]))));
-        ui->MU_basicerr_TblWidget->setItem(rowCount,14, new QTableWidgetItem(ID));
+        ui->MU_basicerr_TblWidget->setItem(rowCount,12, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][12])));//多次角差
+
+        ui->MU_basicerr_TblWidget->setItem(rowCount,13, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][14])));//比差变差
+        ui->MU_basicerr_TblWidget->setItem(rowCount,14, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][15])));//角差变差
+        ui->MU_basicerr_TblWidget->setItem(rowCount,15, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][16])));//比差限值
+        ui->MU_basicerr_TblWidget->setItem(rowCount,16, new QTableWidgetItem(QString::fromLocal8Bit(sqlTemp[j][17])));//角差限值
+        ui->MU_basicerr_TblWidget->setItem(rowCount,17, new QTableWidgetItem(JBWCSYJLDM_index(QString::fromLocal8Bit(sqlTemp[j][18]))));//比差结论
+        ui->MU_basicerr_TblWidget->setItem(rowCount,18, new QTableWidgetItem(JBWCSYJLDM_index(QString::fromLocal8Bit(sqlTemp[j][19]))));//角差结论
+        ui->MU_basicerr_TblWidget->setItem(rowCount,19, new QTableWidgetItem(JBWCSYJLDM_index(QString::fromLocal8Bit(sqlTemp[j][20]))));
+
+        ui->MU_basicerr_TblWidget->setItem(rowCount,20, new QTableWidgetItem(ID));
      }
 
     return true;
@@ -69,6 +82,7 @@ bool MainWindow:: get_MdsFuncData(QString ID)
 {
     QString str1;
 
+    clear_sqlTemp();
     str1=QString("select * from MdsFuncData where testId  ='%1'").arg(ID);
     sql_exec(str1.toLatin1().data());
 
@@ -108,6 +122,7 @@ bool MainWindow:: get_MdsFuncData(QString ID)
 void MainWindow::getDataFromLocalSqlToTblWidget(QString strExec,QTableWidget * tblWidget,int columnCount)
 {
     int intResult,rowCount;
+    clear_sqlTemp();
     intResult= sql_exec(strExec.toLatin1().data());
     if(intResult!=SQLITE_OK)
     {
@@ -129,6 +144,7 @@ void MainWindow::getDataFromLocalSqlToTblWidget(QString strExec,QTableWidget * t
 bool MainWindow::isLocalBarCodeExist(QString strExec,QString strBarCode)
 {
     int intResult;
+    //clear_sqlTemp();
     intResult= sql_exec(strExec.toLatin1().data());
     if(intResult!=SQLITE_OK)
     {
@@ -145,30 +161,55 @@ bool MainWindow::isLocalBarCodeExist(QString strExec,QString strBarCode)
 return false;
 }
 
+
+QString MainWindow::get_isUpdate_from_sampleInfo(QString  sampleNo)
+{
+    QString strExec;
+    sqlTemp[0][20][0] = '0';
+
+    clear_sqlTemp();
+    strExec = QString("select * from  sampleInfo where sampleNo = '%1'").arg(sampleNo);
+    sql_exec(strExec.toLatin1().data());
+
+    return QString(sqlTemp[0][20]);
+}
+
+
 //获取本地数据库相关信息
+//   strTime = QString("to_date('%1','yyyy-mm-dd hh24:mi:ss')").arg(ui->EM_RSLT_TabWidget->item(i,50)->text());
+//qDebug()<<strTime;
 void MainWindow:: get_checkParameter()
 {
-    memset(sqlTemp, 0,sizeof(0x4fff*3000));
-    //sql_exec("select * from checkParameter");
-    sql_exec("Select testList.barCode,testList.Id from muList,testList where testList.MuId = muList.Id AND testList.taskNo is null AND testList.barCode is not null;");
-    //sql_exec("Select * from muList,testList where testList.MuId = muList.Id AND testList.taskNo is null AND testList.barCode is not null;");
 
-    for(int i=0;i<LocalSqlSum;i++)
+    QString strTemp,strStartDate,strEndDate;
+    strStartDate = ui->MU_update_startDate_DtEdit->date().toString("yyyy-MM-dd");
+    strEndDate = ui->MU_update_endDate_DtEdit->date().toString("yyyy-MM-dd");
+
+    strTemp = QString("select testList.barCode,testList.Id from testList where testList.barCode is not null AND testList.startTestTime Between'%1' AND '%2';").arg(strStartDate,strEndDate);
+    clear_sqlTemp();
+    sql_exec(strTemp.toLatin1().data());
+
+    int intTemp = LocalSqlSum ;//每次执行sql_exec会重新得到LocalSqlSum,这里要保留
+    for(int i=0;i<intTemp;i++)
     {
-#if 1
-        strArray[0][i]=QString(sqlTemp[i][0]);//barCode
+        strArray[0][i]=QString(sqlTemp[i][0]);//sampleNo
         strArray[19][i]=QString(sqlTemp[i][1]);//ID
+     }
 
-        //strArray[2][i]=QString(sqlTemp[i][9]);//其它测试信息
-        //qDebug()<<QString::number(i)<<strArray[1][i];
-        //qDebug()<<QString::fromUtf8(sqlTemp[0][i]);
-#endif
-        }
+    for(int i=0;i<intTemp;i++)
+    {
+        strArray[1][i] = get_isUpdate_from_sampleInfo(strArray[0][i]);
+        //qDebug()<<strArray[0][i]<<strArray[1][i];
+    }
+
+    LocalSqlSum =intTemp;  //LocalSqlSum 需要返回,这个是条形的数目;
+
 }
 
 
 bool MainWindow::SqlTempToQstring(QString strExec,int ItemCount)
 {
+    //clear_sqlTemp();
     if(sql_exec(strExec.toLatin1().data())!=SQLITE_OK)
     {
         return false;
@@ -188,6 +229,7 @@ bool MainWindow:: get_muList(QString strID)
 {
     QString str1;
 
+    clear_sqlTemp();
     str1=QString("select * from muList where Id   ='%1'").arg(strID);
     sql_exec(str1.toLatin1().data());
 
@@ -206,11 +248,14 @@ bool MainWindow:: get_muList(QString strID)
     return true;
 }
 
+
 bool MainWindow:: get_testList(QString strID)
 {
     QString str1;
 
-    str1=QString("select * from testList where Id   ='%1'").arg(strID);
+    clear_sqlTemp();
+    //str1=QString("select * from testList where Id   ='%1'").arg(strID);
+    str1=QString("select Id,MuId,sourMac,descMac,appid,ANALOGRATE_V,ANALOGRATE_I,VOLTAGERANGE,CURRENTRANGE,SYNTYPE ,startTestTime,dataSaveTime,tester,auditor,AuditState,result,environment,protocolData,otherInformation,barCode,taskNo from testList where Id ='%1'").arg(strID);
     sql_exec(str1.toLatin1().data());
 
     struct_testList.Id           = QString(sqlTemp[0][0]);
@@ -250,6 +295,10 @@ bool MainWindow:: get_testList(QString strID)
     return true;
 }
 
+void MainWindow:: clear_sqlTemp()
+{
+  memset(sqlTemp, 0,sizeof(sqlTemp));
+}
 
 
 int MainWindow::sql_exec(const char *sql)
@@ -257,9 +306,8 @@ int MainWindow::sql_exec(const char *sql)
     char *zErr;
     int intResult;
     sqlite_tableCal=0;
-    memset(sqlTemp, 0,sizeof(1000*1000));
-    intResult = sqlite3_exec(localsqliteDB,sql,callback,NULL,&zErr);
 
+    intResult = sqlite3_exec(localsqliteDB,sql,callback,NULL,&zErr);
     LocalSqlSum = sqlite_tableCal;
 
     return intResult;

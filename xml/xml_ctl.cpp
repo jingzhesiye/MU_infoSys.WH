@@ -4,9 +4,10 @@
 #include "QDebug"
 
 //生成XML文件
-void MainWindow::on_MU_creat_xml_PsBtn_clicked()
+
+bool MainWindow:: MU_creat_xml()
 {
-    QString  fileName ="e:/update.xml";//"./update.xml";//
+    QString  fileName =strUpdatePath;
     QFile *file;
     QDomDocument domDoc;
 
@@ -15,30 +16,29 @@ void MainWindow::on_MU_creat_xml_PsBtn_clicked()
       file->remove(fileName);
     }
 
-    if(!create_xml(fileName,"samples"))
-    {
-        return ;
-    }
-
-    if(!load_xmlFile(fileName,domDoc))
-    {
-        return ;
-    }
+    QDomProcessingInstruction instruction = domDoc.createProcessingInstruction("xml","version=\"1.0\" encoding=\"GB2312\"");
+    domDoc.appendChild(instruction);
+    QDomElement root = domDoc.createElement("samples"); //根节点
+    domDoc.appendChild(root);
 
     addNode_sample("sample",domDoc);
-    addNode_intuit("project",domDoc);
+//  addNode_intuit("project",domDoc);
     addNode_basicerr("project",domDoc);
     addNode_dispersion("project",domDoc);
     addNode_transmission("project",domDoc);
     addNode_integrity("project",domDoc);
+    g_domDoc=domDoc;
 
     if(!save_xmlFile(fileName, domDoc))
     {
-       return ;
+       return  false;
     }
 
-    showInformationBox(QString::fromUtf8("创建成功"));
+     return  true;
+    //showInformationBox(QString::fromUtf8("创建成功"));
+
 }
+
 
 //测试用
 void MainWindow::on_MU_down_test_PsBtn_clicked()
@@ -46,10 +46,10 @@ void MainWindow::on_MU_down_test_PsBtn_clicked()
     QStringList strList;
     QDomDocument domDoc;
     QString  strTemp;
-
-    if(!load_xmlFile("e:/down1.xml",domDoc))
+#if 0
+    if(!load_xmlFile(strDownPath,domDoc))
     {
-        save_xmlFile("e:/sampleInfo.xml",domDoc);
+        save_xmlFile("./sampleInfo.xml",domDoc);
         return;
     }
 
@@ -57,13 +57,15 @@ void MainWindow::on_MU_down_test_PsBtn_clicked()
     strTemp =domDoc.toString();
     //qDebug()<<strTemp;
 
-#if 1
+
     QDomDocument domDoc2;
     domDoc2.setContent(strTemp);
     analyze_sampleInfo(domDoc2);
 #endif
 
-    //analyze_sampleInfo(domDoc);
+//    char sqlTemp[4000][100][3000];//1.数目；2.内容个数3.长度
+//    qDebug()<<QString::number(sizeof(sqlTemp));
+//    //analyze_sampleInfo(domDoc);
 
 }
 

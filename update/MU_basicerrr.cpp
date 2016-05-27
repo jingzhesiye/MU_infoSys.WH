@@ -18,8 +18,9 @@ bool MainWindow::fill_BASICERR(QString ID)
 
 void MainWindow::addNode_basicerr(QString nodeName, QDomDocument &domDoc)
 {
-    QDomElement  domElement,projectsElement,projectElement,testDataElement;
-    QDomText textNode;
+    QDomElement  projectsElement,projectElement,testDataElement;
+    QDomElement  domElement1,domElement2,domElement3,domElement4,domElement5,domElement6;
+    QDomText textNode1,textNode2,textNode3,textNode4,textNode5,textNode6;
     QString str1,str2,testResult;
 
     int rowCount,columnCount,index;
@@ -42,10 +43,9 @@ void MainWindow::addNode_basicerr(QString nodeName, QDomDocument &domDoc)
 
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
-    projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
-    projectElement.setAttribute("projectName",QString::fromUtf8("基本误差"));
-    //projectElement.setAttribute("testResult","1");
-    projectsElement.appendChild( projectElement );
+    projectElement.setAttribute("projectNo","PJ0202");
+    projectElement.setAttribute("projectName",QString::fromUtf8("精度试验"));
+    projectsElement.appendChild( projectElement);
 
     for(int i =0;i<rowCount;i++)//
     {
@@ -53,51 +53,66 @@ void MainWindow::addNode_basicerr(QString nodeName, QDomDocument &domDoc)
         projectElement.appendChild( testDataElement );
 
         testDataElement.setAttribute("chIndex",ui->MU_basicerr_TblWidget->item(i,1)->text());
-        testDataElement.setAttribute("chMap",ui->MU_basicerr_TblWidget->item(i,2)->text());
-        testDataElement.setAttribute("point",ui->MU_basicerr_TblWidget->item(i,3)->text());
-        testDataElement.setAttribute("rms_B",ui->MU_basicerr_TblWidget->item(i,4)->text());
-        testDataElement.setAttribute("rms_X",ui->MU_basicerr_TblWidget->item(i,5)->text());
+        testDataElement.setAttribute("measureKind",ui->MU_basicerr_TblWidget->item(i,2)->text());//输入项
+        testDataElement.setAttribute("curr",ui->MU_basicerr_TblWidget->item(i,3)->text());//检定点
 
-        testDataElement.setAttribute("freq_B",ui->MU_basicerr_TblWidget->item(i,6)->text());
-        testDataElement.setAttribute("freq_X",ui->MU_basicerr_TblWidget->item(i,7)->text());
-        testDataElement.setAttribute("vError",ui->MU_basicerr_TblWidget->item(i,8)->text());
-        testDataElement.setAttribute("qError",ui->MU_basicerr_TblWidget->item(i,9)->text());
-        testDataElement.setAttribute("freqError",ui->MU_basicerr_TblWidget->item(i,10)->text());
+//        testDataElement.setAttribute("rms_B",ui->MU_basicerr_TblWidget->item(i,4)->text());//标准有效值
+//        testDataElement.setAttribute("rms_X",ui->MU_basicerr_TblWidget->item(i,5)->text());
+//        testDataElement.setAttribute("freq_B",ui->MU_basicerr_TblWidget->item(i,6)->text());
+//        testDataElement.setAttribute("freq_X",ui->MU_basicerr_TblWidget->item(i,7)->text());
+//        testDataElement.setAttribute("vError",ui->MU_basicerr_TblWidget->item(i,8)->text());
+//        testDataElement.setAttribute("qError",ui->MU_basicerr_TblWidget->item(i,9)->text());
+//        testDataElement.setAttribute("freqError",ui->MU_basicerr_TblWidget->item(i,10)->text());
 
-        testDataElement.setAttribute("vErrorArray",ui->MU_basicerr_TblWidget->item(i,11)->text());
-        testDataElement.setAttribute("qErrorArray",ui->MU_basicerr_TblWidget->item(i,12)->text());
-        testDataElement.setAttribute("conclusion",ui->MU_basicerr_TblWidget->item(i,13)->text());
+//        testDataElement.setAttribute("vErrorArray",ui->MU_basicerr_TblWidget->item(i,11)->text());
+//        testDataElement.setAttribute("qErrorArray",ui->MU_basicerr_TblWidget->item(i,12)->text());
+        testDataElement.setAttribute("conclusion",ui->MU_basicerr_TblWidget->item(i,19)->text());
 
-        if(ui->MU_basicerr_TblWidget->item(i,13)->text()!="1")
+        if(ui->MU_basicerr_TblWidget->item(i,19)->text()!="1")
         {
               testResult="0";
         }
 
-#if 0
-        str1= ui->MU_basicerr_TblWidget->item(i,19)->text(); //误差次数
-        int simplingCount = str1.count("|")+1;
+        //testDataElement.setAttribute("chIndex",ui->MU_basicerr_TblWidget->item(i,12)->text());
 
-        for(int i =0;i<simplingCount;i++)
-        {
-            index=str1.indexOf("|");
+        textNode1 = domDoc.createTextNode(ui->MU_basicerr_TblWidget->item(i,4)->text());//标准有效值
+        domElement1 = domDoc.createElement("error");
+        domElement1.appendChild(textNode1);
+        testDataElement.appendChild(domElement1);
 
-            if(index>0)
-            {
-               str2 = str1.left(index);
-            }
-            else
-            {
-               str2 = str1;
-            }
+        textNode2 = domDoc.createTextNode(ui->MU_basicerr_TblWidget->item(i,5)->text());//被检有效值
+        domElement2 = domDoc.createElement("error");
+        domElement2.appendChild(textNode2);
+        testDataElement.appendChild(domElement2);
 
-            str1.remove(0,(index+1));
-            textNode = domDoc.createTextNode(str2);
-            domElement = domDoc.createElement("error");
-            domElement.appendChild(textNode);
-            testDataElement.appendChild( domElement );
-        }
-#endif
+        textNode3 = domDoc.createTextNode(ui->MU_basicerr_TblWidget->item(i,8)->text());//比差均值
+        domElement3 = domDoc.createElement("error");
+        domElement3.appendChild(textNode3);
+        testDataElement.appendChild(domElement3);
+
+        textNode4 = domDoc.createTextNode(ui->MU_basicerr_TblWidget->item(i,9)->text());//角差均值
+        domElement4 = domDoc.createElement("error");
+        domElement4.appendChild(textNode4);
+        testDataElement.appendChild(domElement4);
+
+        textNode5 = domDoc.createTextNode(ui->MU_basicerr_TblWidget->item(i,13)->text());//比差变差
+        domElement5 = domDoc.createElement("error");
+        domElement5.appendChild(textNode5);
+        testDataElement.appendChild(domElement5);
+
+        textNode6 = domDoc.createTextNode(ui->MU_basicerr_TblWidget->item(i,14)->text());//角差变差
+        domElement6 = domDoc.createElement("error");
+        domElement6.appendChild(textNode6);
+        testDataElement.appendChild(domElement6);
     }
-    projectElement.setAttribute("testResult",testResult);
+
+    projectElement.setAttribute("result",testResult);
 }
 
+
+//<error>标准幅值</error>
+//<error>被检幅值</error>
+//<error>比差均值</error>
+//<error>角差均值</error>
+//<error>比差变差</error>
+//<error>角差变差</error>

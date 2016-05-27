@@ -16,6 +16,7 @@ void MainWindow::down_MT_DETECT_TASK(QString barCode,QString detectTaskNo)
     QString     strExec;
     int rowCount;
 
+    clear_sqlTemp();
     strExec = QString("select * from  mt_detect_task where DETECT_TASK_NO ='%1' order by  WRITE_DATE desc").arg(detectTaskNo);
 
     if(!sqlQuery.exec(strExec))
@@ -92,6 +93,7 @@ void MainWindow:: save_MT_DETECT_TASK()
                         .arg(ui->EM_DETECT_TASK_TblWidget->item(i,25)->text());
         #endif
             byteArray = strExec.toLocal8Bit();
+
             intResult= sql_exec(byteArray.data());
             if(intResult!=SQLITE_OK)
             {

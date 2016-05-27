@@ -57,24 +57,23 @@ void MainWindow::addNode_integrity(QString nodeName, QDomDocument &domDoc)
 
     projectsElement = domDoc.documentElement().firstChild().firstChild().toElement();
     projectElement = domDoc.createElement(nodeName);
-    projectElement.setAttribute("sampleNo",struct_sampleInfo.sampleNo);
-    projectElement.setAttribute("projectName",QString::fromUtf8("完整性"));
+    projectElement.setAttribute("projectNo","PJ0199");
+    projectElement.setAttribute("projectName",QString::fromUtf8("完整性试验"));
     projectsElement.appendChild( projectElement );
 
     for(int i =0;i<rowCount;i++)//
     {
-        projectElement.setAttribute("inteLoseNum",ui->MU_integrity_TblWidget->item(i,1)->text());
-        projectElement.setAttribute("inteAllNum",ui->MU_integrity_TblWidget->item(i,2)->text());
-        projectElement.setAttribute("inteTestTime ",ui->MU_integrity_TblWidget->item(i,3)->text());
-
-        projectElement.setAttribute("testResult",ui->MU_integrity_TblWidget->item(i,4)->text());
-        projectElement.setAttribute("inteStartTime",ui->MU_integrity_TblWidget->item(i,5)->text());
-        projectElement.setAttribute("inteEndTime",ui->MU_integrity_TblWidget->item(i,6)->text());
-
-
         domElement = domDoc.createElement("testData");
         projectElement.appendChild( domElement );
+        projectElement.setAttribute("result",ui->MU_integrity_TblWidget->item(i,4)->text());
+        domElement.setAttribute("lostPoints",ui->MU_integrity_TblWidget->item(i,1)->text());
+        domElement.setAttribute("totalPoints",ui->MU_integrity_TblWidget->item(i,2)->text());
+        domElement.setAttribute("testTime",ui->MU_integrity_TblWidget->item(i,3)->text());
+        domElement.setAttribute("startTestTime",ui->MU_integrity_TblWidget->item(i,5)->text());
+        domElement.setAttribute("endTestTime",ui->MU_integrity_TblWidget->item(i,6)->text());
+        //domElement.setAttribute("testPhase","/"); //testPhase
         domElement.setAttribute("conclusion",ui->MU_integrity_TblWidget->item(i,4)->text());
+        domElement.setAttribute("testNum","0");
 
     }
 }

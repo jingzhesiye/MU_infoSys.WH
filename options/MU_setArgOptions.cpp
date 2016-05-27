@@ -27,6 +27,17 @@ void MainWindow::on_EM_options_check_PsBtn_clicked()
 }
 
 
+void MainWindow::on_MU_update_startDate_DtEdit_dateChanged(const QDate &date)
+{
+    writeIni("sysParams/startDate",date.toString("yyyy-MM-dd"));
+}
+
+void MainWindow::on_MU_update_endDate_DtEdit_dateChanged(const QDate &date)
+{
+    writeIni("sysParams/endDate",date.toString("yyyy-MM-dd"));
+}
+
+
 void MainWindow::on_EM_options_setArg_Oracle_PsBtn_clicked()
 {
     QString  strTemp;
@@ -112,38 +123,6 @@ void MainWindow::on_MU_options_deleteLocalSqlAll_PsBtn_clicked()
                     return;
                 }
 
-
-                #if 0
-                strExec ="delete from  MT_P_CODE";
-                intResult= sql_exec(strExec.toLatin1().data());
-
-                if(intResult!=SQLITE_OK)
-                {
-                     showInformationBox(QString::fromUtf8("delete MT_P_CODE error"));
-                     return;
-                }
-
-
-
-                strExec ="delete from  MT_DETECT_TASK";
-                intResult= sql_exec(strExec.toLatin1().data());
-
-                if(intResult!=SQLITE_OK)
-                {
-                    showInformationBox(QString::fromUtf8("delete MT_DETECT_TASK error"));
-                    return;
-                }
-
-
-                strExec ="delete from  MT_DETECT_OUT_EQUIP";
-                intResult= sql_exec(strExec.toLatin1().data());
-
-                if(intResult!=SQLITE_OK)
-                {
-                    showInformationBox(QString::fromUtf8("delete TABLEMT_DETECT_OUT_EQUIP error"));
-                    return;
-                }
-            #endif
              showInformationBox(QString::fromUtf8("已经清空"));
              break;
          }
