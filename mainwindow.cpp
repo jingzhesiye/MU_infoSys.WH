@@ -55,6 +55,7 @@ void MainWindow:: init_TblWidget()
     ui->MU_sampleInfo_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::ResizeToContents);
     ui->MU_sampleInfo_TblWidget->verticalHeader()->setHidden(false);
 
+    ui->MU_down_TabWidget->setTabEnabled(1,false);
     ui->MU_down_TabWidget->setTabEnabled(2,false);
     ui->MU_down_TabWidget->setTabEnabled(3,false);
     ui->MU_down_TabWidget->setTabEnabled(4,false);
